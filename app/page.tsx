@@ -56,11 +56,22 @@ export default function EJScottLanding() {
   const [brandsVisible, setBrandsVisible] = useState(false);
   const workRef = useRef(null);
   const [workVisible, setWorkVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
 
   useEffect(() => {
     const t = setTimeout(() => setHeroVisible(true), 100);
     return () => clearTimeout(t);
   }, []);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 40);
@@ -356,36 +367,63 @@ export default function EJScottLanding() {
       <nav style={{
         position: "fixed",
         top: 0,
-        left: 0,
-        right: 0,
+        width: "100%",
         zIndex: 100,
         display: "flex",
-        alignItems: "center",
         justifyContent: "space-between",
-        padding: "24px 48px",
-        background: scrolled ? "rgba(10,10,10,0.92)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(240,237,230,0.06)" : "none",
-        transition: "background 0.4s, border-color 0.4s, backdrop-filter 0.4s",
+        alignItems: "center",
+        padding: "20px clamp(20px,6vw,48px)",
+        background: scrolled ? "rgba(10,10,10,0.9)" : "transparent",
+        backdropFilter: scrolled ? "blur(10px)" : "none",
       }}>
-        <div style={{
-          fontFamily: "'DM Mono', monospace",
-          fontSize: 13,
-          letterSpacing: "0.08em",
-          fontWeight: 500,
-          color: "#F0EDE6",
-        }}>
+        <div style={{ fontFamily: "DM Mono", fontSize: 13 }}>
           EJSCOTT<span style={{ color: "#C8FF00" }}>.</span>
         </div>
-        <div className="nav-links" style={{ display: "flex", gap: 40 }}>
-          {NAV_LINKS.map((l) => (
-            <span key={l} className="nav-link">{l}</span>
-          ))}
-        </div>
-        <a className="cta-btn" style={{ padding: "10px 24px", fontSize: 10 }} href="#contact">
-          Get in touch
-        </a>
+
+        {/* Desktop nav */}
+        {!isMobile && (
+          <div style={{ display: "flex", gap: 40 }}>
+            {NAV_LINKS.map(l => <span key={l}>{l}</span>)}
+          </div>
+        )}
+
+        {/* Mobile button */}
+        {isMobile && (
+          <div onClick={() => setMenuOpen(true)} style={{ fontSize: 24 }}>
+            ☰
+          </div>
+        )}
       </nav>
+
+      {/* ── MOBILE MENU ── */}
+      {menuOpen && (
+        <div style={{
+          position: "fixed",
+          inset: 0,
+          background: "#0A0A0A",
+          zIndex: 200,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 32,
+        }}>
+          {NAV_LINKS.map(l => (
+            <div key={l} style={{ fontSize: 28 }}>{l}</div>
+          ))}
+          <button
+            onClick={() => setMenuOpen(false)}
+            style={{
+              marginTop: 40,
+              background: "#C8FF00",
+              border: "none",
+              padding: "12px 24px",
+            }}
+          >
+            Close
+          </button>
+        </div>
+      )}
 
       {/* ── HERO ── */}
       <section style={{
@@ -639,29 +677,50 @@ export default function EJScottLanding() {
       </section>
 
       {/* ── BRANDS ── */}
-      <section id="work" ref={workRef} style={{ padding: "80px 48px" }}>
+      <section style={{
+        padding: "80px clamp(20px,6vw,48px)"
+      }}>
         <h2 style={{ marginBottom: 40 }}>Selected Work</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }}>
-          {PROJECTS.map((p, i) => (
-            <div
-              key={p.name}
-              style={{
-                opacity: workVisible ? 1 : 0,
-                transform: workVisible ? "translateY(0)" : "translateY(40px)",
-                transition: `all 0.6s ${i * 0.1}s`,
-              }}
-            >
-              <div style={{ overflow: "hidden", border: "1px solid rgba(255,255,255,0.1)" }}>
+
+        <div style={{
+          display: "grid",
+          gap: 24,
+          gridTemplateColumns: isMobile
+            ? "1fr"
+            : "repeat(auto-fit,minmax(320px,1fr))"
+        }}>
+          {PROJECTS.map(p => (
+            <div key={p.name} style={{
+              width: "100%",
+            }}>
+              <div style={{
+                overflow: "hidden",
+                border: "1px solid rgba(255,255,255,0.1)",
+              }}>
                 <img
                   src={p.image}
-                  alt={p.name}
-                  style={{ width: "100%", display: "block", transition: "transform 0.4s" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                  style={{
+                    width: "100%",
+                    height: isMobile ? 220 : 260,
+                    objectFit: "cover",
+                  }}
                 />
               </div>
-              <div style={{ marginTop: 12, fontSize: 14, opacity: 0.6 }}>{p.tag}</div>
-              <div style={{ fontSize: 20 }}>{p.name}</div>
+
+              <div style={{
+                marginTop: 12,
+                fontSize: 13,
+                opacity: 0.5,
+              }}>
+                {p.tag}
+              </div>
+
+              <div style={{
+                fontSize: isMobile ? 22 : 18,
+                marginTop: 4,
+              }}>
+                {p.name}
+              </div>
             </div>
           ))}
         </div>
@@ -733,37 +792,20 @@ export default function EJScottLanding() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer style={{
-        borderTop: "1px solid rgba(240,237,230,0.08)",
-        padding: "40px 48px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        flexWrap: "wrap",
-        gap: 24,
-      }}>
-        <div style={{
-          fontFamily: "'DM Mono', monospace",
-          fontSize: 13,
-          letterSpacing: "0.08em",
-          fontWeight: 500,
-        }}>
-          EJSCOTT<span style={{ color: "#C8FF00" }}>.</span>
+      <footer
+        style={{
+          borderTop: "1px solid rgba(255,255,255,0.1)",
+          padding: "40px clamp(20px,6vw,48px)",
+          display: "flex",
+          flexDirection: isMobile ? "column" : "row",
+          justifyContent: "space-between",
+          gap: 20,
+        }}
+      >
+        <div>EJSCOTT.</div>
+        <div style={{ opacity: 0.4, fontSize: 12 }}>
+          © {new Date().getFullYear()}
         </div>
-        <div style={{
-          fontFamily: "'DM Mono', monospace",
-          fontSize: 10,
-          letterSpacing: "0.15em",
-          color: "rgba(240,237,230,0.25)",
-          textTransform: "uppercase",
-        }}>
-          © {new Date().getFullYear()} EJSCOTT Group. All rights reserved.
-        </div>
-        {/*<div style={{ display: "flex", gap: 32 }}>
-          {["Privacy", "Terms"].map((l) => (
-            <span key={l} className="nav-link" style={{ fontSize: 10 }}>{l}</span>
-          ))}
-        </div>*/}
       </footer>
     </div>
   );
