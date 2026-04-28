@@ -364,66 +364,151 @@ export default function EJScottLanding() {
       />
 
       {/* ── NAV ── */}
-      <nav style={{
-        position: "fixed",
-        top: 0,
-        width: "100%",
-        zIndex: 100,
+  <nav style={{
+    position: "fixed",
+    top: 0,
+    width: "100%",
+    zIndex: 100,
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "20px clamp(20px,6vw,48px)",
+    background: scrolled ? "rgba(10,10,10,0.95)" : "transparent",
+    backdropFilter: scrolled ? "blur(12px)" : "none",
+    transition: "all 0.3s ease",
+  }}>
+    <div style={{ fontFamily: "DM Mono", fontSize: 13 }}>
+      EJSCOTT<span style={{ color: "#C8FF00" }}>.</span>
+    </div>
+
+    {/* Desktop nav */}
+    {!isMobile && (
+      <div style={{ display: "flex", gap: 40 }}>
+        {NAV_LINKS.map(l => (
+          <span key={l} className="nav-link">{l}</span>
+        ))}
+      </div>
+    )}
+
+    {/* Mobile Hamburger */}
+    {isMobile && (
+      <div 
+        onClick={() => setMenuOpen(true)}
+        style={{ 
+          fontSize: 28, 
+          cursor: "pointer",
+          padding: "4px",
+          zIndex: 300 
+        }}
+      >
+        ☰
+      </div>
+    )}
+
+    {/* Desktop CTA Button */}
+    {!isMobile && (
+      <a 
+        href="#contact" 
+        className="cta-btn"
+        style={{ fontSize: 11 }}
+      >
+        Start a project
+      </a>
+    )}
+  </nav>
+
+  {/* ── MOBILE MENU ── */}
+  {menuOpen && (
+    <div style={{
+      position: "fixed",
+      inset: 0,
+      background: "#0A0A0A",
+      zIndex: 200,
+      display: "flex",
+      flexDirection: "column",
+    }}>
+      {/* Top Bar with Close Button */}
+      <div style={{
+        padding: "20px clamp(20px,6vw,48px)",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "20px clamp(20px,6vw,48px)",
-        background: scrolled ? "rgba(10,10,10,0.9)" : "transparent",
-        backdropFilter: scrolled ? "blur(10px)" : "none",
+        borderBottom: "1px solid rgba(240,237,230,0.1)",
       }}>
         <div style={{ fontFamily: "DM Mono", fontSize: 13 }}>
           EJSCOTT<span style={{ color: "#C8FF00" }}>.</span>
         </div>
 
-        {/* Desktop nav */}
-        {!isMobile && (
-          <div style={{ display: "flex", gap: 40 }}>
-            {NAV_LINKS.map(l => <span key={l}>{l}</span>)}
-          </div>
-        )}
+        {/* Animated Close Button (X) */}
+        <div 
+          onClick={() => setMenuOpen(false)}
+          style={{
+            fontSize: 32,
+            cursor: "pointer",
+            width: 44,
+            height: 44,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            transition: "transform 0.4s ease",
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = "rotate(90deg)"}
+          onMouseLeave={(e) => e.currentTarget.style.transform = "rotate(0deg)"}
+        >
+          ✕
+        </div>
+      </div>
 
-        {/* Mobile button */}
-        {isMobile && (
-          <div onClick={() => setMenuOpen(true)} style={{ fontSize: 24 }}>
-            ☰
-          </div>
-        )}
-      </nav>
-
-      {/* ── MOBILE MENU ── */}
-      {menuOpen && (
-        <div style={{
-          position: "fixed",
-          inset: 0,
-          background: "#0A0A0A",
-          zIndex: 200,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: 32,
-        }}>
-          {NAV_LINKS.map(l => (
-            <div key={l} style={{ fontSize: 28 }}>{l}</div>
-          ))}
-          <button
-            onClick={() => setMenuOpen(false)}
-            style={{
-              marginTop: 40,
-              background: "#C8FF00",
-              border: "none",
-              padding: "12px 24px",
+      {/* Menu Links - Centered */}
+      <div style={{
+        flex: 1,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 40,
+      }}>
+        {NAV_LINKS.map(l => (
+          <div 
+            key={l} 
+            style={{ 
+              fontSize: 32, 
+              fontWeight: 300,
+              cursor: "pointer",
+              transition: "color 0.3s"
+            }}
+            onClick={() => {
+              // Optional: smooth scroll or close menu
+              setMenuOpen(false);
+              document.getElementById(l.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
             }}
           >
-            Close
-          </button>
-        </div>
-      )}
+            {l}
+          </div>
+        ))}
+      </div>
+
+      {/* Green CTA Button at Bottom */}
+      <div style={{
+        padding: "40px clamp(20px,6vw,48px)",
+        borderTop: "1px solid rgba(240,237,230,0.1)",
+      }}>
+        <a 
+          href="#contact"
+          onClick={() => setMenuOpen(false)}
+          className="cta-btn"
+          style={{
+            width: "100%",
+            justifyContent: "center",
+            padding: "18px 24px",
+            fontSize: 12,
+          }}
+        >
+          Speak to us — Start a project
+        </a>
+      </div>
+    </div>
+  )}
 
       {/* ── HERO ── */}
       <section style={{
