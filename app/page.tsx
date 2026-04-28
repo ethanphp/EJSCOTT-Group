@@ -764,7 +764,7 @@ export default function EJScottLanding() {
       {/* ── BRANDS ── */}
       <section style={{
         padding: "80px clamp(20px,6vw,48px)"
-      }}>
+      }} id="work">
         <h2 style={{ marginBottom: 40 }}>Selected Work</h2>
 
         <div style={{
