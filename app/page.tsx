@@ -383,12 +383,24 @@ export default function EJScottLanding() {
 
     {/* Desktop nav */}
     {!isMobile && (
-      <div style={{ display: "flex", gap: 40 }}>
-        {NAV_LINKS.map(l => (
-          <span key={l} className="nav-link">{l}</span>
-        ))}
-      </div>
-    )}
+    <div style={{ display: "flex", gap: 40 }}>
+      {NAV_LINKS.map(l => (
+        <a
+          key={l}
+          href={`#${l.toLowerCase()}`}
+          className="nav-link"
+          onClick={(e) => {
+            e.preventDefault(); // Optional: for smoother control
+            document.getElementById(l.toLowerCase())?.scrollIntoView({
+              behavior: "smooth"
+            });
+          }}
+        >
+          {l}
+        </a>
+      ))}
+    </div>
+  )}
 
     {/* Mobile Hamburger */}
     {isMobile && (
