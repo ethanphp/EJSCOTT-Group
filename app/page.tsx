@@ -1,15 +1,49 @@
 // app/page.tsx
+"use client";
+import { useState } from "react";
 export default function EJScottLanding() {
-  const towns = [
-    "St Albans",
-    "Watford",
-    "Hemel Hempstead",
-    "Stevenage",
-    "Hatfield",
-    "Welwyn Garden City",
-    "Hertford",
-    "Hitchin",
-  ];
+
+const [form, setForm] = useState({
+  name: "",
+  business: "",
+  contact: "",
+});
+
+const [loading, setLoading] = useState(false);
+const [success, setSuccess] = useState(false);
+
+function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+  setForm({
+    ...form,
+    [e.target.name]: e.target.value,
+  });
+}
+async function handleSubmit(e: React.FormEvent) {
+  e.preventDefault();
+  setLoading(true);
+  setSuccess(false);
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+
+    if (res.ok) {
+      setSuccess(true);
+      setForm({ name: "", business: "", contact: "" });
+    } else {
+      alert("Something went wrong.");
+    }
+  } catch (err) {
+    alert("Network error.");
+  } finally {
+    setLoading(false);
+  }
+}
 
   return (
     <div className="min-h-screen bg-white text-black font-sans">
@@ -295,44 +329,64 @@ export default function EJScottLanding() {
           </p>
 
           <div className="border-2 border-black rounded-3xl p-10 text-left">
-            <form className="space-y-5 max-w-md mx-auto">
-              <div>
-                <label className="block text-sm mb-2 font-semibold">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  className="w-full px-5 py-3.5 rounded-2xl border-2 border-black/10 focus:outline-none focus:border-emerald-600 transition-colors"
-                  placeholder="Your name"
-                />
-              </div>
-              <div>
-                <label className="block text-sm mb-2 font-semibold">
-                  Business Name &amp; Location
-                </label>
-                <input
-                  type="text"
-                  className="w-full px-5 py-3.5 rounded-2xl border-2 border-black/10 focus:outline-none focus:border-emerald-600 transition-colors"
-                  placeholder="e.g. Bloom Cafe, St Albans"
-                />
-              </div>
-              <div>
-                <label className="block text-sm mb-2 font-semibold">
-                  Email or Phone
-                </label>
-                <input
-                  type="text"
-                  className="w-full px-5 py-3.5 rounded-2xl border-2 border-black/10 focus:outline-none focus:border-emerald-600 transition-colors"
-                  placeholder="hello@gmail.com"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-black hover:bg-emerald-600 text-white py-4 rounded-2xl font-bold text-lg transition-colors"
-              >
-                Send Message — Let&apos;s Talk
-              </button>
-            </form>
+            <form onSubmit={handleSubmit} className="space-y-5 max-w-md mx-auto">
+  <div>
+    <label className="block text-sm mb-2 font-semibold">Your Name</label>
+    <input
+      name="name"
+      value={form.name}
+      onChange={handleChange}
+      type="text"
+      className="w-full px-5 py-3.5 rounded-2xl border-2 border-black/10 focus:outline-none focus:border-emerald-600 transition-colors"
+      placeholder="Your name"
+      required
+    />
+  </div>
+
+  <div>
+    <label className="block text-sm mb-2 font-semibold">
+      Business Name & Location
+    </label>
+    <input
+      name="business"
+      value={form.business}
+      onChange={handleChange}
+      type="text"
+      className="w-full px-5 py-3.5 rounded-2xl border-2 border-black/10 focus:outline-none focus:border-emerald-600 transition-colors"
+      placeholder="e.g. Bloom Cafe, St Albans"
+      required
+    />
+  </div>
+
+  <div>
+    <label className="block text-sm mb-2 font-semibold">
+      Email or Phone
+    </label>
+    <input
+      name="contact"
+      value={form.contact}
+      onChange={handleChange}
+      type="text"
+      className="w-full px-5 py-3.5 rounded-2xl border-2 border-black/10 focus:outline-none focus:border-emerald-600 transition-colors"
+      placeholder="hello@gmail.com or 07..."
+      required
+    />
+  </div>
+
+  <button
+    type="submit"
+    disabled={loading}
+    className="w-full bg-black hover:bg-emerald-600 disabled:opacity-50 text-white py-4 rounded-2xl font-bold text-lg transition-colors"
+  >
+    {loading ? "Sending..." : "Send Message — Let's Talk"}
+  </button>
+
+  {success && (
+    <p className="text-emerald-600 text-sm font-medium text-center">
+      Message sent — we’ll get back to you soon.
+    </p>
+  )}
+</form>
           </div>
 
           <p className="mt-8 text-sm text-black/50">
