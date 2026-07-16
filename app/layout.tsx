@@ -1,36 +1,38 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, Work_Sans } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const display = Space_Grotesk({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const body = Work_Sans({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "EJSCOTT Group | Websites for Hertfordshire Businesses",
+    default: "EJSCOTT Group | Websites, Apps & Digital Builds",
     template: "%s | EJSCOTT Group",
   },
   description:
-    "We build modern, high-converting websites for small businesses across Hertfordshire. Design, hosting, and updates handled for you.",
+    "EJSCOTT Group builds websites, booking systems, and custom software for local businesses and clients further afield. Design, hosting, and updates handled for you.",
   keywords: [
     "web design Hertfordshire",
     "small business websites UK",
     "website designer Stevenage",
-    "Watford web design",
-    "Hemel Hempstead websites",
+    "custom software UK",
+    "booking system websites",
   ],
   metadataBase: new URL("https://ejscottgroup.co.uk"),
   openGraph: {
     title: "EJSCOTT Group",
     description:
-      "Websites for Hertfordshire businesses. Built, hosted and managed for you.",
+      "Websites, booking systems, and custom software — built and managed for you.",
     url: "https://ejscottgroup.co.uk",
     siteName: "EJSCOTT Group",
     type: "website",
@@ -39,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "EJSCOTT Group",
     description:
-      "Websites for Hertfordshire businesses. Built, hosted and managed for you.",
+      "Websites, booking systems, and custom software — built and managed for you.",
   },
   icons: {
     icon: "/favicon.ico",
@@ -54,9 +56,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
+      className={`${display.variable} ${body.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-white text-black">
+      <body className="min-h-full flex flex-col bg-[#fbfaf6] text-[#0e1210]">
         {children}
       </body>
     </html>
