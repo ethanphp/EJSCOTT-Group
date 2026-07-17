@@ -20,19 +20,19 @@ const services = [
     icon: Globe,
     num: "01",
     title: "A website, built & managed for you",
-    copy: "Clean, mobile-friendly websites that showcase your business properly. We handle the design, hosting, and changes — just send us what you'd like updated.",
+    copy: "Clean, mobile-friendly websites that showcase your business properly. We handle the design, hosting, and updates, so you just send us what you'd like changed.",
   },
   {
     icon: CalendarCheck,
     num: "02",
     title: "Online booking systems",
-    copy: "Let customers book around the clock — built for salons, barbers, therapists, tutors, and anyone tired of missed calls.",
+    copy: "Let customers book around the clock. Perfect for salons, barbers, therapists, tutors, and anyone tired of missed calls.",
   },
   {
     icon: Wrench,
     num: "03",
     title: "Custom software & solutions",
-    copy: "E-commerce stores, internal tools, or fully bespoke web apps — built around exactly what your business needs, wherever you're based.",
+    copy: "From e-commerce stores and internal tools to fully bespoke web apps, we build software around exactly what your business needs, wherever you're based.",
   },
 ];
 
@@ -41,14 +41,14 @@ const work = [
     image: "/djstevedee.png",
     tag: "Events DJ · Letchworth",
     title: "Modern DJ Website",
-    copy: "A modern, conversion-focused site showcasing DJ Steve's music, events and services — delivering a clear uplift in enquiries and regular bookings.",
+    copy: "A modern, conversion-focused site showcasing DJ Steve's music, events, and services. Designed to increase enquiries and drive more regular bookings.",
     href: "https://www.djstevedee.co.uk",
   },
   {
     image: "/hempteach.png",
     tag: "Tutor · Hertfordshire",
     title: "Tutoring Business",
-    copy: "A clean, trust-building website for a local tutor that highlights services, testimonials and easy booking — helping convert visitors into students.",
+    copy: "A clean, trust-building website for a local tutor that highlights services, testimonials, and easy booking. Helping turn visitors into students.",
     href: "https://www.hempteach.co.uk",
   },
 ];
@@ -131,12 +131,12 @@ export default function EJScottLanding() {
           <div className="mx-auto max-w-[1400px] px-5 pt-20 pb-24 md:px-10 md:pt-28 md:pb-32">
             <div className="grid gap-14 md:grid-cols-2 md:items-center">
               <div>
-                <Reveal>
+                {/*<Reveal>
                   <div className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wider">
                     <span className="h-2 w-2 rounded-full bg-green" />
                     Based in Hertfordshire, working further afield
                   </div>
-                </Reveal>
+                </Reveal>*/}
 
                 <h1 className="mt-7 font-display text-5xl font-semibold leading-[1.05] tracking-tighter md:text-7xl">
                   Get your business{" "}
@@ -152,8 +152,8 @@ export default function EJScottLanding() {
                 <Reveal delay={0.15}>
                   <p className="mt-8 max-w-[46ch] text-lg leading-relaxed text-ink/70 md:text-xl">
                     We design, build and manage your entire online
-                    presence — website, bookings, updates — so you don&apos;t
-                    have to. Perfect for busy owners who&apos;d rather leave
+                    presence. Website, bookings, and updates, all handled
+                    for you. Perfect for busy owners who&apos;d rather leave
                     the tech to us, wherever your business is based.
                   </p>
                 </Reveal>
@@ -216,8 +216,8 @@ export default function EJScottLanding() {
               </h2>
               <p className="mt-6 max-w-[60ch] text-lg leading-relaxed text-ink/70">
                 Not confident with computers? No problem. We take care of your
-                entire online presence — building it, hosting it, and keeping
-                it up to date — so you can focus on what you do best.
+                entire online presence, building it, hosting it, and keeping
+                it up to date, so you can focus on what you do best.
               </p>
             </Reveal>
 
@@ -252,7 +252,7 @@ export default function EJScottLanding() {
               </h2>
               <p className="mt-6 max-w-[56ch] text-lg leading-relaxed text-cream/70">
                 Helping business owners look professional and win more
-                customers — locally and beyond.
+                customers, both locally and beyond.
               </p>
             </Reveal>
 
@@ -300,21 +300,21 @@ export default function EJScottLanding() {
                   About
                 </p>
                 <h2 className="mt-4 font-display text-4xl font-semibold tracking-tighter md:text-5xl">
-                  Rooted in Hertfordshire. Not limited by it.
+                  Rooted in Hertfordshire. Not restricted by it.
                 </h2>
                 <div className="mt-6 space-y-5 text-lg leading-relaxed text-ink/70">
                   <p>
                     We build modern, effective websites and digital tools for
                     business owners who&apos;d rather not deal with the tech
                     themselves. We&apos;re based in Hertfordshire and know it
-                    well — but our clients aren&apos;t only local, and neither
+                    well, but our clients aren&apos;t only local, and neither
                     is the work. Websites, booking systems, and custom
-                    software for whoever needs them built properly.
+                    software for anyone who needs them built properly.
                   </p>
                   <p>
                     Best of all, we don&apos;t just hand you a site and
-                    disappear. We look after hosting, security, updates and
-                    changes for you — so if you&apos;re not a &ldquo;computer
+                    disappear. We look after hosting, security, updates, and
+                    changes for you, so if you&apos;re not a &ldquo;computer
                     person&rdquo;, that&apos;s exactly what we&apos;re here
                     for.
                   </p>
@@ -357,7 +357,7 @@ export default function EJScottLanding() {
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-ink/70">
                 Share a few details about your business and we&apos;ll handle
-                everything else — no jargon, no stress, just a high-quality
+                everything else. No jargon, no stress, just a high-quality
                 website built for you, often in under a week.
               </p>
             </Reveal>
@@ -414,7 +414,7 @@ export default function EJScottLanding() {
 
                 {success && (
                   <p className="mt-4 text-center text-sm font-medium text-green-deep">
-                    Message sent — we&apos;ll get back to you soon.
+                    Message sent. We&apos;ll get back to you soon.
                   </p>
                 )}
               </form>
@@ -422,8 +422,8 @@ export default function EJScottLanding() {
 
             <p className="mt-8 text-sm text-ink/60">
               Or phone us directly at{" "}
-              <a href="tel:07301573293" className="font-semibold text-blue hover:underline">
-                07301 573293
+              <a href="tel:+447301573293" className="font-semibold text-blue hover:underline">
+                +44 7301 573293
               </a>
             </p>
           </div>
@@ -440,8 +440,8 @@ export default function EJScottLanding() {
             <span className="font-display text-xl font-semibold">EJSCOTT Group</span>
           </div>
           <p className="mx-auto mt-5 max-w-[46ch] text-sm leading-relaxed text-cream/60">
-            Websites, booking systems, and custom software — built and
-            managed for business owners, based in Hertfordshire and beyond.
+            Websites, booking systems, and custom software, built and
+            managed for business owners across Hertfordshire and beyond.
           </p>
           <div className="mx-auto mt-12 max-w-[1400px] border-t border-cream/15 pt-8 text-xs text-cream/40">
             © {new Date().getFullYear()} EJSCOTT Group
