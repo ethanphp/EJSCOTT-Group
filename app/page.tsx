@@ -100,9 +100,14 @@ export default function EJScottLanding() {
       <header className="sticky top-0 z-50 border-b-[2.5px] border-ink bg-cream/90 backdrop-blur">
         <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-4 md:px-10">
           <a href="#top" className="flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg border-2 border-ink bg-green font-display text-sm font-bold">
-              EJ
-            </span>
+            <Image
+              src="/logo.png"
+              alt="EJSCOTT Group"
+              width={36}
+              height={36}
+              className="h-9 w-9 rounded-lg border-2 border-ink"
+              priority
+            />
             <span className="font-display text-xl font-semibold tracking-tight">
               EJSCOTT Group
             </span>
@@ -434,9 +439,13 @@ export default function EJScottLanding() {
       <footer className="border-t-[2.5px] border-ink bg-ink text-cream">
         <div className="mx-auto max-w-[1400px] px-5 py-16 text-center md:px-10">
           <div className="flex items-center justify-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg border-2 border-cream bg-green font-display text-sm font-bold text-ink">
-              EJ
-            </span>
+            <Image
+              src="/logo.png"
+              alt="EJSCOTT Group"
+              width={36}
+              height={36}
+              className="h-9 w-9 rounded-lg border-2 border-cream"
+            />
             <span className="font-display text-xl font-semibold">EJSCOTT Group</span>
           </div>
           <p className="mx-auto mt-5 max-w-[46ch] text-sm leading-relaxed text-cream/60">

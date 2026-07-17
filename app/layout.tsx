@@ -43,9 +43,6 @@ export const metadata: Metadata = {
     description:
       "Websites, booking systems, and custom software — built and managed for you.",
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
 export default function RootLayout({
