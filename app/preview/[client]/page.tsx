@@ -21,13 +21,7 @@ export default async function ClientPreviewPage({
     <div className="flex min-h-screen flex-col bg-ink">
       <header className="flex items-center justify-between gap-4 border-b-2 border-cream/15 px-5 py-4 md:px-10">
         <div className="flex items-center gap-2.5">
-          <Image
-            src="/logo.png"
-            alt="EJSCOTT Group"
-            width={32}
-            height={32}
-            className="h-8 w-8 rounded-lg border-2 border-cream"
-          />
+          <Image src="/mark.svg" alt="EJSCOTT Group" width={32} height={32} className="h-8 w-8" />
           <div>
             <p className="font-display text-sm font-semibold tracking-tight text-cream">
               Preview for {client.name}

@@ -16,16 +16,15 @@ export default function SiteHeader({ ctaHref = "#contact" }: { ctaHref?: string 
   return (
     <header className="sticky top-0 z-50 border-b-[2.5px] border-ink bg-cream/90 backdrop-blur">
       <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-4 md:px-10">
-        <Link href="/" className="flex items-center gap-2.5">
+        <Link href="/" className="flex shrink-0 items-center" aria-label="EJSCOTT Group home">
           <Image
-            src="/logo.png"
+            src="/logo.svg"
             alt="EJSCOTT Group"
-            width={36}
-            height={36}
-            className="h-9 w-9 rounded-lg border-2 border-ink"
+            width={665}
+            height={108}
+            className="h-9 w-auto"
             priority
           />
-          <span className="font-display text-xl font-semibold tracking-tight">EJSCOTT Group</span>
         </Link>
 
         <div className="hidden items-center gap-7 lg:flex">

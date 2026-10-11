@@ -28,6 +28,19 @@ stay in that lane for the whole engagement.
   keep the same plain-English tone — don't switch into ABCCode-style
   engineer-speak just because the project is bigger.
 
+## Logo
+
+- **Wordmark:** "EJSCOTT" in Space Grotesk Bold (ink), with "Group" on a
+  tilted green sticker tag, the same treatment as the highlighted words in
+  the homepage headline. Always the full name; never shorten it to "EJ".
+- **Files:** `public/logo.svg` (light backgrounds), `public/logo-dark.svg`
+  (ink backgrounds), `public/logo.png` (512px square, for structured data).
+  The letters are outlined shapes, so they don't depend on fonts loading.
+- **Tab and app icons only:** an "EJ" green sticker square
+  (`app/icon.svg`, `app/favicon.ico`, `app/apple-icon.png`,
+  `public/mark.svg`). The full name can't be read at 16px; use this mark
+  only where the space is too small for the wordmark.
+
 ## Visual system
 
 - **Fonts:** Space Grotesk (display/headings), Work Sans (body). Never

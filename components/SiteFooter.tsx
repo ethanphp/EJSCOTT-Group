@@ -10,15 +10,14 @@ export default function SiteFooter() {
       <div className="mx-auto max-w-[1400px] px-5 pt-16 pb-28 md:px-10 md:pb-16">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_2fr_1.4fr]">
           <div>
-            <Link href="/" className="flex items-center gap-2.5">
+            <Link href="/" className="inline-flex" aria-label="EJSCOTT Group home">
               <Image
-                src="/logo.png"
+                src="/logo-dark.svg"
                 alt="EJSCOTT Group"
-                width={36}
-                height={36}
-                className="h-9 w-9 rounded-lg border-2 border-cream"
+                width={665}
+                height={108}
+                className="h-10 w-auto"
               />
-              <span className="font-display text-xl font-semibold">EJSCOTT Group</span>
             </Link>
             <p className="mt-5 max-w-[40ch] text-sm leading-relaxed text-cream/60">
               Websites, booking systems, apps and custom software, built and
