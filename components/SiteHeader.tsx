@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import MobileMenu from "@/components/MobileMenu";
 
 const links = [
   { href: "/#services", label: "Services" },
@@ -35,12 +36,15 @@ export default function SiteHeader({ ctaHref = "#contact" }: { ctaHref?: string 
           ))}
         </div>
 
-        <a
-          href={ctaHref}
-          className="sticker-sm hidden rounded-full bg-blue px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 active:translate-y-0 active:shadow-none md:inline-block"
-        >
-          Get a free design
-        </a>
+        <div className="flex items-center gap-3">
+          <a
+            href={ctaHref}
+            className="sticker-sm hidden rounded-full bg-blue px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 active:translate-y-0 active:shadow-none md:inline-block"
+          >
+            Get a free design
+          </a>
+          <MobileMenu links={[...links, { href: "/refer", label: "Refer a business" }]} ctaHref={ctaHref} />
+        </div>
       </nav>
     </header>
   );
