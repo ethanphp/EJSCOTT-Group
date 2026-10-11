@@ -196,7 +196,7 @@ Headlines are heavy and tightly tracked. Eyebrows are small, uppercase and widel
 | Channel | Detail | Where it appears |
 |---|---|---|
 | Website | ejscottgroup.co.uk | Metadata and Open Graph URL |
-| Phone | 07301 573293 | Contact section, as a `tel:` link |
+| Phone | +44 7942 672887 | Contact section, as a `tel:` link |
 | Lead notifications | ethan@ejscott.co.uk | Contact API. Marked "change this" in the code |
 | Email sender | EJSCOTT Leads <onboarding@resend.dev> | Lead notification emails |
 
