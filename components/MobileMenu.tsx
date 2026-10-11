@@ -95,7 +95,7 @@ export default function MobileMenu({
               transition={{ duration: 0.35, ease }}
               className="absolute inset-x-0 top-full max-h-[calc(100dvh-4.75rem)] overflow-y-auto overscroll-contain border-b-[2.5px] border-ink bg-cream lg:hidden"
             >
-              <nav aria-label="Mobile" className="mx-auto max-w-[1400px] px-5 pt-4 pb-8 md:px-10">
+              <nav aria-label="Mobile" className="mx-auto max-w-[1400px] px-5 pt-4 pb-28 md:px-10 md:pb-8">
                 <motion.ul
                   initial="hidden"
                   animate="show"
@@ -140,7 +140,8 @@ export default function MobileMenu({
                     Get a free design
                     <ArrowRight weight="bold" />
                   </a>
-                  <div className="grid grid-cols-2 gap-3">
+                  {/* Phones already have these in the fixed bottom bar (MobileContactBar). */}
+                  <div className="hidden grid-cols-2 gap-3 md:grid">
                     <a
                       href={PHONE_TEL}
                       className="sticker-sm inline-flex items-center justify-center gap-2 rounded-full bg-ink py-3 font-semibold text-cream active:translate-y-0.5 active:shadow-none"
