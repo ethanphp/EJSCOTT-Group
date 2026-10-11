@@ -8,12 +8,10 @@ export const ogImage = {
   height: 630,
   alt: "EJSCOTT Group: websites, online booking and apps for local businesses",
 };
-export const PHONE_DISPLAY = "07301 573293";
-export const PHONE_TEL = "tel:+447301573293";
-export const PHONE_E164 = "+447301573293";
-export const WHATSAPP = `https://wa.me/447301573293?text=${encodeURIComponent(
-  "Hi Ethan, I'd like to chat about a website for my business."
-)}`;
+export const PHONE_DISPLAY = "+44 7942 672887";
+export const PHONE_TEL = "tel:+447942672887";
+export const PHONE_E164 = "+447942672887";
+export const WHATSAPP = "https://wa.me/message/PSC3D7DUXKF6N1";
 export const REPLY_PROMISE = "I reply to every enquiry the same working day.";
 
 export type Billing = "monthly" | "once";
