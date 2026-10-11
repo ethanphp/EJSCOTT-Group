@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: SITE_URL, lastModified, changeFrequency: "monthly", priority: 1 },
     { url: `${SITE_URL}/web-design`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${SITE_URL}/websites-for`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${SITE_URL}/refer`, lastModified, changeFrequency: "yearly", priority: 0.5 },
     ...towns.map((t) => ({
       url: `${SITE_URL}/web-design/${t.slug}`,
       lastModified,

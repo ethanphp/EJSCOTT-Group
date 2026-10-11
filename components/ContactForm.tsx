@@ -5,7 +5,7 @@ import { ArrowRight, Check } from "@phosphor-icons/react/dist/ssr";
 import { CHOOSE_NEED_EVENT } from "@/components/Pricing";
 import { PHONE_DISPLAY, REPLY_PROMISE, WHATSAPP, needs } from "@/lib/site";
 
-const inputClass =
+export const inputClass =
   "rounded-xl border-2 border-ink/15 bg-cream px-4 py-3 outline-none transition-colors focus:border-ink focus-visible:ring-4 focus-visible:ring-green/40";
 
 export default function ContactForm({
@@ -15,7 +15,15 @@ export default function ContactForm({
   defaultNeed?: string;
   source?: string;
 }) {
-  const emptyForm = { name: "", business: "", contact: "", need: defaultNeed, message: "", website: "" };
+  const emptyForm = {
+    name: "",
+    business: "",
+    contact: "",
+    need: defaultNeed,
+    message: "",
+    referredBy: "",
+    website: "",
+  };
   const [form, setForm] = useState(emptyForm);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -153,6 +161,21 @@ export default function ContactForm({
           rows={3}
           placeholder="e.g. I'd like customers to book online, and I need it before Christmas."
           className={`${inputClass} resize-y`}
+        />
+      </div>
+
+      <div className="mt-6 flex flex-col gap-2">
+        <label htmlFor="referredBy" className="text-sm font-semibold">
+          Did someone recommend me? <span className="font-normal text-ink/50">(optional)</span>
+        </label>
+        <input
+          id="referredBy"
+          name="referredBy"
+          value={form.referredBy}
+          onChange={handleChange}
+          type="text"
+          placeholder="Their name, so I can thank them"
+          className={inputClass}
         />
       </div>
 

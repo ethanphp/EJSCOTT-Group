@@ -8,11 +8,15 @@ export default function PageHero({
   title,
   lead,
   checks = ["From £39/month", "No payment until you love the design", "Most sites live in a week"],
+  cta = { href: "#contact", label: "Get your free design" },
+  secondary = { href: "#pricing", label: "See prices" },
 }: {
   breadcrumbs: { name: string; href: string }[];
   title: ReactNode;
   lead: string;
   checks?: string[];
+  cta?: { href: string; label: string };
+  secondary?: { href: string; label: string };
 }) {
   return (
     <section className="relative overflow-hidden border-b-[2.5px] border-ink">
@@ -48,14 +52,14 @@ export default function PageHero({
         <Reveal delay={0.25}>
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
-              href="#contact"
+              href={cta.href}
               className="sticker group inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-base font-semibold text-cream transition-transform hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
             >
-              Get your free design
+              {cta.label}
               <ArrowRight className="transition-transform group-hover:translate-x-1" weight="bold" />
             </a>
-            <a href="#pricing" className="text-base font-semibold underline decoration-2 underline-offset-4 hover:text-blue">
-              See prices
+            <a href={secondary.href} className="text-base font-semibold underline decoration-2 underline-offset-4 hover:text-blue">
+              {secondary.label}
             </a>
           </div>
           <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-ink/70">

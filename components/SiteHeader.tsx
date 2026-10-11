@@ -10,7 +10,8 @@ const links = [
   { href: "/#about", label: "About" },
 ];
 
-export default function SiteHeader() {
+/** Pages without their own contact form pass ctaHref="/#contact". */
+export default function SiteHeader({ ctaHref = "#contact" }: { ctaHref?: string }) {
   return (
     <header className="sticky top-0 z-50 border-b-[2.5px] border-ink bg-cream/90 backdrop-blur">
       <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-4 md:px-10">
@@ -35,7 +36,7 @@ export default function SiteHeader() {
         </div>
 
         <a
-          href="#contact"
+          href={ctaHref}
           className="sticker-sm hidden rounded-full bg-blue px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 active:translate-y-0 active:shadow-none md:inline-block"
         >
           Get a free design

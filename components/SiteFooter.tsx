@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { industries } from "@/lib/industries";
-import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP } from "@/lib/site";
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP, referral } from "@/lib/site";
 import { shortName, towns } from "@/lib/towns";
 
 export default function SiteFooter() {
@@ -32,6 +32,11 @@ export default function SiteFooter() {
               <a href={WHATSAPP} target="_blank" rel="noreferrer" className="font-semibold text-cream hover:text-green">
                 WhatsApp
               </a>
+            </p>
+            <p className="mt-5 text-sm">
+              <Link href="/refer" className="font-semibold text-green hover:underline">
+                Refer a business, get {referral.clientReward} →
+              </Link>
             </p>
           </div>
 

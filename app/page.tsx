@@ -9,6 +9,7 @@ import WorkGrid from "@/components/WorkGrid";
 import Pricing from "@/components/Pricing";
 import FaqList, { faqJsonLd } from "@/components/FaqList";
 import ContactSection from "@/components/ContactSection";
+import ReferralBanner from "@/components/ReferralBanner";
 import JsonLd from "@/components/JsonLd";
 import { LinkChips } from "@/components/PageHero";
 import {
@@ -318,6 +319,8 @@ export default function EJScottLanding() {
             </Reveal>
           </div>
         </section>
+
+        <ReferralBanner />
 
         {/* FAQ */}
         <section id="faq" className="border-b-[2.5px] border-ink bg-paper px-5 py-24 md:px-10 md:py-32">

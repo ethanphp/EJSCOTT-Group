@@ -1,32 +1,18 @@
-import { Resend } from "resend";
+import { cleanFields, clean, isEmail, readJson, sendLead } from "@/lib/leads";
 
-// Set these in the hosting environment. The fallbacks keep the form working
-// until a sending domain is verified in Resend.
-const TO = process.env.CONTACT_TO_EMAIL ?? "ethan@ejscott.co.uk";
-const FROM =
-  process.env.CONTACT_FROM_EMAIL ?? "EJSCOTT Leads <onboarding@resend.dev>";
-
-const LIMITS = { name: 100, business: 150, contact: 150, need: 60, message: 2000, source: 200 };
-type Field = keyof typeof LIMITS;
-
-function clean(value: unknown, max: number) {
-  return typeof value === "string" ? value.trim().slice(0, max) : "";
-}
-
-function escapeHtml(value: string) {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
+const LIMITS = {
+  name: 100,
+  business: 150,
+  contact: 150,
+  need: 60,
+  message: 2000,
+  referredBy: 150,
+  source: 200,
+};
 
 export async function POST(req: Request) {
-  let body: Record<string, unknown>;
-  try {
-    body = await req.json();
-  } catch {
+  const body = await readJson(req);
+  if (!body) {
     return Response.json({ success: false, error: "Invalid request." }, { status: 400 });
   }
 
@@ -35,9 +21,7 @@ export async function POST(req: Request) {
     return Response.json({ success: true });
   }
 
-  const fields = Object.fromEntries(
-    (Object.keys(LIMITS) as Field[]).map((key) => [key, clean(body[key], LIMITS[key])])
-  ) as Record<Field, string>;
+  const fields = cleanFields(body, LIMITS);
 
   if (!fields.name || !fields.business || !fields.contact) {
     return Response.json(
@@ -46,40 +30,24 @@ export async function POST(req: Request) {
     );
   }
 
-  const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.contact);
-  const rows: [string, string][] = [
-    ["Name", fields.name],
-    ["Business", fields.business],
-    ["Contact", fields.contact],
-    ["Looking for", fields.need || "Not specified"],
-    ["Message", fields.message || "—"],
-    ["Sent from", fields.source || "/"],
-  ];
+  const sent = await sendLead({
+    heading: "New lead",
+    subject: `New lead: ${fields.business}${fields.need ? ` (${fields.need})` : ""}${
+      fields.referredBy ? ` · referred by ${fields.referredBy}` : ""
+    }`,
+    rows: [
+      ["Name", fields.name],
+      ["Business", fields.business],
+      ["Contact", fields.contact],
+      ["Looking for", fields.need || "Not specified"],
+      ["Message", fields.message || "—"],
+      ["Referred by", fields.referredBy || "—"],
+      ["Sent from", fields.source || "/"],
+    ],
+    replyTo: isEmail(fields.contact) ? fields.contact : undefined,
+  });
 
-  try {
-    const resend = new Resend(process.env.RESEND_API_KEY);
-    const { error } = await resend.emails.send({
-      from: FROM,
-      to: [TO],
-      replyTo: isEmail ? fields.contact : undefined,
-      subject: `New lead: ${fields.business}${fields.need ? ` (${fields.need})` : ""}`,
-      html: `<h2>New lead</h2>${rows
-        .map(
-          ([label, value]) =>
-            `<p><strong>${label}:</strong> ${escapeHtml(value).replace(/\n/g, "<br>")}</p>`
-        )
-        .join("")}`,
-      text: rows.map(([label, value]) => `${label}: ${value}`).join("\n"),
-    });
-
-    if (error) {
-      console.error("Resend error", error);
-      return Response.json({ success: false, error: "Could not send." }, { status: 502 });
-    }
-
-    return Response.json({ success: true });
-  } catch (error) {
-    console.error("Contact form error", error);
-    return Response.json({ success: false, error: "Could not send." }, { status: 500 });
-  }
+  return sent
+    ? Response.json({ success: true })
+    : Response.json({ success: false, error: "Could not send." }, { status: 502 });
 }

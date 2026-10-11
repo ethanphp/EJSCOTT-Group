@@ -67,6 +67,11 @@ stay in that lane for the whole engagement.
 - **Contact:** phone and WhatsApp appear in About, under the form, in the
   footer and in the mobile-only bottom bar. Keep all four in sync via the
   constants at the top of `app/page.tsx`.
+- **Referrals:** clients get a free month, anyone else gets £50, and the
+  referred business gets £50 off (`referral` in `lib/site.ts`). The reward
+  is due once the referred business pays its deposit. Rewards are for
+  introductions only, never for reviews. Details and terms live on `/refer`;
+  the contact form asks "Did someone recommend me?" so referrals get credited.
 - **Testimonials:** real client quotes only, added to the `testimonials`
   array. The section stays hidden while it's empty.
 

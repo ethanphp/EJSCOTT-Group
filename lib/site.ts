@@ -66,6 +66,13 @@ export const plans = [
 
 export type PlanNeed = (typeof plans)[number]["need"];
 
+// Referral rewards. Change them here and the referral page, banner and FAQ follow.
+export const referral = {
+  clientReward: "a month free",
+  otherReward: "£50",
+  friendDiscount: "£50 off",
+};
+
 export const promises = [
   "Free homepage design before you pay anything",
   "No hidden costs, ever",
@@ -136,6 +143,10 @@ export const faqs: Faq[] = [
   {
     q: "Can you build an app for my business?",
     a: "Yes. iPhone and Android apps, web apps, customer portals and internal tools. Tell me what you want it to do and I'll come back with a fixed price and plain-English plan.",
+  },
+  {
+    q: "Do you have a referral scheme?",
+    a: `Yes. Refer a business and, once they go ahead, you get ${referral.clientReward} if you're a client, or ${referral.otherReward} if you're not. They get ${referral.friendDiscount} their deposit too. There's no limit on how many businesses you can refer.`,
   },
   {
     q: "I'm not in Hertfordshire. Can you still help?",
