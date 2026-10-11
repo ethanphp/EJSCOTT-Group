@@ -6,7 +6,7 @@ const TO = process.env.CONTACT_TO_EMAIL ?? "ethan@ejscott.co.uk";
 const FROM =
   process.env.CONTACT_FROM_EMAIL ?? "EJSCOTT Leads <onboarding@resend.dev>";
 
-const LIMITS = { name: 100, business: 150, contact: 150, need: 60, message: 2000 };
+const LIMITS = { name: 100, business: 150, contact: 150, need: 60, message: 2000, source: 200 };
 type Field = keyof typeof LIMITS;
 
 function clean(value: unknown, max: number) {
@@ -53,6 +53,7 @@ export async function POST(req: Request) {
     ["Contact", fields.contact],
     ["Looking for", fields.need || "Not specified"],
     ["Message", fields.message || "—"],
+    ["Sent from", fields.source || "/"],
   ];
 
   try {

@@ -70,6 +70,23 @@ stay in that lane for the whole engagement.
 - **Testimonials:** real client quotes only, added to the `testimonials`
   array. The section stays hidden while it's empty.
 
+## Town and industry pages
+
+- **Towns** live in `lib/towns.ts` (served at `/web-design/[town]`) and
+  **industries** in `lib/industries.ts` (`/websites-for/[industry]`). Add
+  an entry there and the page, footer links, homepage links and sitemap all
+  follow.
+- **Personal only where it's true.** Ethan grew up in Hitchin, lives in
+  Stevenage, and has a client in Letchworth (DJ Steve Dee). Only those towns
+  get a `personal` block. Never claim local clients, years in a town or
+  results that aren't real; add them when they are.
+- **Every page needs its own words.** Don't copy one town's text to another
+  with the name swapped. Google treats near-duplicate pages as spam. Use real
+  local detail (streets, landmarks, the kind of businesses there).
+- Shared building blocks (`SiteHeader`, `SiteFooter`, `Pricing`,
+  `ContactSection`, `FaqList`, `WorkGrid`, `MobileContactBar`) keep every
+  page on-brand. The contact form records which page a lead came from.
+
 ## Client proposals
 
 Proposals should feel personal and low-friction — reflecting that clients
