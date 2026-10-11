@@ -1,18 +1,22 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Work_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { SITE_URL, ogImage } from "@/lib/site";
 
-const display = Space_Grotesk({
+// Self-hosted (Latin subset, variable weight) so builds don't depend on
+// fetching from Google Fonts, which intermittently failed on Vercel.
+const display = localFont({
+  src: "./fonts/SpaceGrotesk.woff2",
   variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "300 700",
+  display: "swap",
 });
 
-const body = Work_Sans({
+const body = localFont({
+  src: "./fonts/WorkSans.woff2",
   variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: "100 900",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
