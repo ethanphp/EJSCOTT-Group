@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Work_Sans } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site";
 
 const display = Space_Grotesk({
   variable: "--font-display",
@@ -28,12 +29,12 @@ export const metadata: Metadata = {
     "custom software UK",
     "booking system websites",
   ],
-  metadataBase: new URL("https://ejscottgroup.co.uk"),
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     title: "EJSCOTT Group",
     description:
       "Websites, booking systems, and custom software — built and managed for you.",
-    url: "https://ejscottgroup.co.uk",
+    url: SITE_URL,
     siteName: "EJSCOTT Group",
     type: "website",
   },

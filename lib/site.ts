@@ -1,4 +1,5 @@
-export const SITE_URL = "https://ejscottgroup.co.uk";
+// The live host. ejscott.co.uk redirects here, so canonicals and the sitemap must use it.
+export const SITE_URL = "https://www.ejscott.co.uk";
 export const PHONE_DISPLAY = "07301 573293";
 export const PHONE_TEL = "tel:+447301573293";
 export const PHONE_E164 = "+447301573293";
