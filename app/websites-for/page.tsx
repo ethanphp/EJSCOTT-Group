@@ -9,7 +9,7 @@ import Pricing from "@/components/Pricing";
 import ContactSection from "@/components/ContactSection";
 import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
-import { PHONE_DISPLAY, SITE_URL, businessJsonLd } from "@/lib/site";
+import { PHONE_DISPLAY, SITE_URL, businessJsonLd, ogImage } from "@/lib/site";
 import { industries } from "@/lib/industries";
 
 const title = "Websites for Small Businesses, by Industry";
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "/websites-for" },
-  openGraph: { title, description, url: "/websites-for", siteName: "EJSCOTT Group", type: "website" },
-  twitter: { card: "summary", title, description },
+  openGraph: { title, description, url: "/websites-for", siteName: "EJSCOTT Group", type: "website", images: [ogImage] },
+  twitter: { card: "summary_large_image", title, description, images: [ogImage.url] },
 };
 
 export default function IndustriesHub() {

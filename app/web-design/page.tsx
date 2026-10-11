@@ -10,7 +10,7 @@ import Pricing from "@/components/Pricing";
 import ContactSection from "@/components/ContactSection";
 import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
-import { PHONE_DISPLAY, SITE_URL, businessJsonLd } from "@/lib/site";
+import { PHONE_DISPLAY, SITE_URL, businessJsonLd, ogImage } from "@/lib/site";
 import { districts, shortName, towns } from "@/lib/towns";
 
 const title = "Web Design in Hertfordshire";
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "/web-design" },
-  openGraph: { title, description, url: "/web-design", siteName: "EJSCOTT Group", type: "website" },
-  twitter: { card: "summary", title, description },
+  openGraph: { title, description, url: "/web-design", siteName: "EJSCOTT Group", type: "website", images: [ogImage] },
+  twitter: { card: "summary_large_image", title, description, images: [ogImage.url] },
 };
 
 export default function WebDesignHub() {

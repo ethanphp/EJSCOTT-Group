@@ -1,5 +1,13 @@
 // The live host. ejscott.co.uk redirects here, so canonicals and the sitemap must use it.
 export const SITE_URL = "https://www.ejscott.co.uk";
+// Link-preview image for WhatsApp, iMessage, Facebook and LinkedIn. Pages that set
+// their own openGraph replace the layout's, so each one includes this explicitly.
+export const ogImage = {
+  url: "/og.png",
+  width: 1200,
+  height: 630,
+  alt: "EJSCOTT Group: websites, online booking and apps for local businesses",
+};
 export const PHONE_DISPLAY = "07301 573293";
 export const PHONE_TEL = "tel:+447301573293";
 export const PHONE_E164 = "+447301573293";

@@ -11,7 +11,7 @@ import FaqList, { faqJsonLd } from "@/components/FaqList";
 import ContactSection from "@/components/ContactSection";
 import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
 import { Check, X } from "@phosphor-icons/react/dist/ssr";
-import { PHONE_DISPLAY, SITE_URL, businessJsonLd, faqs as generalFaqs, work } from "@/lib/site";
+import { PHONE_DISPLAY, SITE_URL, businessJsonLd, faqs as generalFaqs, work, ogImage } from "@/lib/site";
 import { getIndustry, industries } from "@/lib/industries";
 import { shortName, towns } from "@/lib/towns";
 
@@ -38,8 +38,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     alternates: { canonical: url },
-    openGraph: { title, description, url, siteName: "EJSCOTT Group", type: "website" },
-    twitter: { card: "summary", title, description },
+    openGraph: { title, description, url, siteName: "EJSCOTT Group", type: "website", images: [ogImage] },
+    twitter: { card: "summary_large_image", title, description, images: [ogImage.url] },
   };
 }
 

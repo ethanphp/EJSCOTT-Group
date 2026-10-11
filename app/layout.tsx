@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Work_Sans } from "next/font/google";
 import "./globals.css";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, ogImage } from "@/lib/site";
 
 const display = Space_Grotesk({
   variable: "--font-display",
@@ -37,12 +37,14 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: "EJSCOTT Group",
     type: "website",
+    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
     title: "EJSCOTT Group",
     description:
       "Websites, booking systems, and custom software — built and managed for you.",
+    images: [ogImage.url],
   },
 };
 

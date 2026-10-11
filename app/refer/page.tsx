@@ -9,7 +9,7 @@ import ReferralForm from "@/components/ReferralForm";
 import FaqList, { faqJsonLd } from "@/components/FaqList";
 import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
 import { ChatCircle, Gift, Handshake } from "@phosphor-icons/react/dist/ssr";
-import { PHONE_DISPLAY, PHONE_TEL, SITE_URL, WHATSAPP, businessJsonLd, referral } from "@/lib/site";
+import { PHONE_DISPLAY, PHONE_TEL, SITE_URL, WHATSAPP, businessJsonLd, referral, ogImage } from "@/lib/site";
 
 const title = "Refer a Business";
 const description = `Know a business that needs a website? Refer them to EJSCOTT Group and get ${referral.clientReward} if you're a client, or ${referral.otherReward} if you're not. They get ${referral.friendDiscount} too.`;
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "/refer" },
-  openGraph: { title, description, url: "/refer", siteName: "EJSCOTT Group", type: "website" },
-  twitter: { card: "summary", title, description },
+  openGraph: { title, description, url: "/refer", siteName: "EJSCOTT Group", type: "website", images: [ogImage] },
+  twitter: { card: "summary_large_image", title, description, images: [ogImage.url] },
 };
 
 const steps = [
