@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | EJSCOTT Group",
   },
   description:
-    "EJSCOTT Group builds websites, booking systems, and custom software for local businesses and clients further afield. Design, hosting, and updates handled for you.",
+    "Websites, booking systems and apps for small businesses in Hertfordshire and across the UK. Designed, hosted and looked after for you, from £39/month. Free homepage design before you pay.",
   keywords: [
     "web design Hertfordshire",
     "small business websites UK",

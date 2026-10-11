@@ -47,6 +47,29 @@ stay in that lane for the whole engagement.
   screenshots only (no stock photography) — the Work section exists to
   prove real, local credibility.
 
+## Offer & pricing
+
+- **Lead offer:** a free homepage design before the client pays anything.
+  The deposit is taken once they're happy with it. Every CTA points at this
+  ("Get your free design"), except custom/app work, which gets "Get a fixed
+  quote".
+- **Two ways to pay:** deposit + monthly (12-month minimum, everything
+  included) or pay once plus a small monthly hosting-and-changes fee.
+  Custom builds (shops, apps, portals) are a fixed quote paid in 2–3 stages.
+- **Published prices** live in the `plans` and `faqs` arrays at the top of
+  `app/page.tsx`. Change them there and keep the hero ("From £39/month"),
+  the existing-site line (care plans from £15/month) and `app/layout.tsx`
+  description in step.
+- **Turnaround:** say "most websites are live within a week". Never promise
+  "today".
+- **Personal voice:** Services and Pricing speak as "we" (the studio).
+  About, FAQ answers and the contact form speak as Ethan ("I"). No photo.
+- **Contact:** phone and WhatsApp appear in About, under the form, in the
+  footer and in the mobile-only bottom bar. Keep all four in sync via the
+  constants at the top of `app/page.tsx`.
+- **Testimonials:** real client quotes only, added to the `testimonials`
+  array. The section stays hidden while it's empty.
+
 ## Client proposals
 
 Proposals should feel personal and low-friction — reflecting that clients
