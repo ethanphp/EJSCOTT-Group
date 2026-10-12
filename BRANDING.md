@@ -1,242 +1,353 @@
 # EJSCOTT Group: Brand Guide
 
-This guide describes the brand as it is built into the site today. The sources are `app/page.tsx`, `app/layout.tsx`, `app/globals.css` and `app/api/contact/route.ts`. Items marked **Recommended** are suggestions, not rules the code already follows. Gaps and inconsistencies are listed in section 14.
+The single source of truth for how EJSCOTT Group looks, sounds and sells, on the
+website, in print and on social. `AGENTS.md` requires all UI to follow this file.
+Where a value lives in code, the file is named so the two can't drift apart.
 
-Based on the code as of 2026-10-11.
+Last updated 2026-10-12.
 
 ---
 
-## 1. Brand summary
+## 1. Brand at a glance
 
-| Item | Detail |
+| | |
 |---|---|
-| **What we do** | Design, build, host and manage websites for small, local businesses |
-| **Where** | Hertfordshire, and beyond |
-| **Who for** | Busy owners who would rather not deal with the tech |
-| **Core promise** | You run the business. We handle the online side. |
-| **Personality** | Reassuring, plain-spoken, local, modern and minimal |
+| **What we do** | Websites, online booking, online shops, apps and custom software, designed, built, hosted and looked after |
+| **Who runs it** | Ethan Scott, alone. Grew up in Hitchin, works from Stevenage |
+| **Who for** | Busy owners of small local businesses who would rather not deal with the tech, plus referred custom builds |
+| **Where** | Hertfordshire first, UK-wide by phone, video and WhatsApp |
+| **Core promise** | We handle the tech, you run the business |
+| **Lead offer** | A free homepage design before you pay anything |
+| **Personality** | Friendly, plain-spoken, local, a bit playful, never corporate |
+
+### Positioning
+
+EJSCOTT Group is the hands-on, friendly option for people who aren't "computer
+people", while still credible for bigger custom builds that come in by referral.
+
+**ABCCode is a separate brand.** ABCCode is Tedy and Ethan's engineering-first
+studio for clients who want two engineers on serious systems. EJSCOTT Group is
+Ethan alone, warmer, and broader in client type. Never route work or proposals
+between the two. Pick whichever fits the client and stay in that lane for the
+whole engagement.
 
 ---
 
 ## 2. Name and logo
 
 ### Name
+- Write **EJSCOTT Group**: "EJSCOTT" in capitals, "Group" in title case.
+- Never "Ejscott", "EJ Scott", "EJScott" or "EJSCOTT GROUP".
+- Always the full name in the logo. Don't shorten it to "EJ" (the tab mark below
+  is the one exception).
 
-- **Full name:** EJSCOTT Group. Write "EJSCOTT" in capitals and "Group" in title case.
-- **Short form:** "EJ" appears only inside the monogram.
-- **Email display name:** "EJSCOTT Leads", used for lead notifications.
-- **Recommended:** Avoid "Ejscott", "EJ Scott" and "EJScott".
+### Wordmark (the logo)
+"EJSCOTT" in Space Grotesk Bold, ink, followed by "Group" in Space Grotesk
+SemiBold on a **green sticker tag** tilted -4°, with an ink border and hard ink
+shadow. It is the same treatment as the highlighted words in the homepage
+headline, so the logo and the site read as one thing.
 
-### Logo
-
-There is no logo image file. The logo is set as styled text:
-
-| Element | Specification |
+| File | Use |
 |---|---|
-| Monogram | "EJ" in bold white on a solid black circle. 40 × 40 px in the nav |
-| Wordmark | "EJSCOTT Group" in bold, with tight tracking. 20 px (`text-xl`) |
-| Tagline (nav only) | "Websites for Hertfordshire" in uppercase. 11 px, 0.2em tracking, semibold, emerald-600 |
-| Reversed (footer) | White circle with black "EJ", and a white wordmark on black. Circle is 36 × 36 px |
+| `public/logo.svg` | Light backgrounds (cream, white). Header |
+| `public/logo-dark.svg` | Ink backgrounds. Footer. Text and tag border switch to cream |
+| `public/logo.png` | 512 px square, stacked version. Structured data (Google) |
 
-**Recommended:** Export the logo as an SVG in `public/` so the mark is not rebuilt by hand. Also set a clear-space rule.
+The letters are outlined shapes, so the logo never depends on fonts loading.
+
+**Rules**
+- Minimum height on screen: 28 px. Header uses 36 px (`h-9`), footer 40 px.
+- Keep clear space around it of at least the height of the "Group" tag.
+- Don't recolour, stretch, untilt the tag, add effects, or retype it in another font.
+- Don't put the light logo on ink, or the dark logo on cream.
+- On blue, use the dark version (cream text, green tag).
+
+### Tab mark (small spaces only)
+A green sticker square with "EJ" in ink. Used only where the full name can't be
+read: browser tab, home-screen icon, tiny avatars.
+
+| File | Use |
+|---|---|
+| `app/icon.svg` | Browser tab (modern browsers) |
+| `app/favicon.ico` | 16/32/48 px fallback |
+| `app/apple-icon.png` | iPhone home screen, 180 px |
+| `public/mark.svg` | Client preview page header |
 
 ---
 
-## 3. Taglines and messaging
+## 3. Colour
 
-### Lines in use
+Defined once in `app/globals.css` and exposed as Tailwind colours.
 
-| Location | Copy |
-|---|---|
-| Nav sub-label | Websites for Hertfordshire |
-| Browser title (home) | EJSCOTT Group \| Websites for Hertfordshire Businesses |
-| Meta description | We build modern, high-converting websites for small businesses across Hertfordshire. Design, hosting, and updates handled for you. |
-| Hero headline | Get your business online today. |
-| Services headline | We handle the tech, you run the business |
-| About headline | Local expertise for Hertfordshire businesses |
-| Contact headline | Ready to get online today? |
-| Footer line | Professional web design for small businesses across Hertfordshire. |
+| Token | Hex | Tailwind | Role |
+|---|---|---|---|
+| Cream | `#fbfaf6` | `bg-cream` | Page background. The brand's "white" |
+| Paper | `#f2efe4` | `bg-paper` | Alternate section background (FAQ, link sections) |
+| White | `#ffffff` | `bg-white` | Sticker cards, form card, inputs sit on cream |
+| Ink | `#0e1210` | `text-ink`, `bg-ink` | Text, borders, shadows, dark sections. Never pure black |
+| Green | `#5ee392` | `bg-green` | Primary accent: sticker tags, icon tiles, highlights |
+| Green deep | `#2f9e5f` | `text-green-deep` | Ticks, eyebrow labels on cream |
+| Blue | `#3d63ff` | `bg-blue` | Secondary accent: main call-to-action buttons, "Most popular", offer banners |
 
-### Four key messages
+**How to use them**
+- Cream is the canvas. Ink does the work. Green and blue are the stickers on top.
+- Green for "yes / included / highlight". Blue for "act now" (buttons, offers).
+- One dark section per page at most besides the footer (the Work section).
+- Body text is ink at 70% (`text-ink/70`); secondary text 60%. Never below 60% on cream.
+- No gradients in UI, no neon glows. The only gradient is inside illustration
+  mock-ups (e.g. the flyer's fake website image).
 
-1. **Done for you.** "We design, build and manage your entire online presence… so you don't have to."
-2. **Local.** The site names Stevenage, Hemel Hempstead, Bishop's Stortford, Berkhamsted, St Albans, Watford and Letchworth.
-3. **Plain English.** "No tech jargon, ever."
-4. **Bookings around the clock.** "Let customers book appointments around the clock… No more missed calls."
+**Contrast (WCAG AA needs 4.5:1 for small text, 3:1 for large text)**
+
+| Pair | Ratio | OK for |
+|---|---|---|
+| Ink on cream | 18.1:1 | Everything |
+| Ink 70% on cream | 6.9:1 | Body text |
+| Ink 60% on cream | 4.9:1 | Small secondary text (minimum) |
+| Ink on green | 11.6:1 | Everything |
+| White on blue | 4.7:1 | Buttons and banners |
+| Cream on ink | 18.1:1 | Everything |
+| Cream 60% on ink | 6.9:1 | Body text on dark |
+| Green on ink | 11.6:1 | Labels on dark |
+| Green deep on cream | 3.3:1 | Large text and icons only (see open items) |
 
 ---
 
-## 4. Voice and tone
+## 4. Typography
 
-- **Warm.** "Not confident with computers? No problem."
-- **Plain.** Short sentences and everyday words.
-- **Direct.** "You" means the customer and "we" means the company.
-- **Confident without hype.** Claims are practical, such as bookings 24/7 or a site often ready in under a week. The site avoids superlatives.
+| Role | Font | Where it comes from |
+|---|---|---|
+| Display: headings, buttons, prices, labels | **Space Grotesk** | `app/fonts/SpaceGrotesk.woff2` |
+| Body: paragraphs, forms, small print | **Work Sans** | `app/fonts/WorkSans.woff2` |
+
+Both are self-hosted variable fonts (Latin subset) loaded with `next/font/local`
+in `app/layout.tsx`. **Don't switch back to `next/font/google`**: fetching Google
+Fonts made Vercel builds fail. Never use Inter. Licences are in `app/fonts/`.
+
+| Style | Classes | Use |
+|---|---|---|
+| Hero headline | `font-display text-5xl md:text-7xl font-semibold leading-[1.05] tracking-tighter` | One per page |
+| Section headline | `font-display text-4xl md:text-5xl font-semibold tracking-tighter` | Every section |
+| Eyebrow | `font-display text-sm font-semibold uppercase tracking-widest` + `text-green-deep` / `text-blue` / `text-green` on dark | Label above each section headline |
+| Card title | `font-display text-xl font-semibold tracking-tight` | Service, step, plan cards (`text-2xl` for plans) |
+| Lead text | `text-lg md:text-xl leading-relaxed text-ink/70` | Under hero headlines |
+| Body | `text-lg leading-relaxed text-ink/70` | Section intros |
+| Small | `text-sm text-ink/60` | Captions, form hints |
+
+Headlines are sentence case and usually end with a full stop
+("We handle the tech, you run the business."). Key words in a headline can sit
+on a sticker (`StickerBadge`), at most two per headline.
+
+---
+
+## 5. The sticker system
+
+The signature look: flat cards and badges with a solid ink border and a hard,
+offset ink shadow, like a sticker on a page. No blur, no soft shadows.
+
+| Class | Border | Shadow | Use |
+|---|---|---|---|
+| `.sticker` | 2.5 px ink | `6px 6px 0 0` ink | Cards, hero buttons, form card, plan cards |
+| `.sticker-sm` | 2 px ink | `4px 4px 0 0` ink | Small buttons, chips, badges, icon tiles |
+
+- **Corners:** buttons and chips `rounded-full`; cards `rounded-3xl`; icon tiles
+  `rounded-xl`/`rounded-lg`; inputs `rounded-xl`.
+- **Tilt:** stickers that label or highlight (headline words, "Most popular",
+  "Most sites live in a week") tilt 2–6°. Cards and buttons stay straight.
+- **Interaction:** hover lifts 2 px (`hover:-translate-y-0.5`); press sinks and
+  drops the shadow (`active:translate-y-0 active:shadow-none`).
+- **Dividers:** sections are separated by `border-b-[2.5px] border-ink`, not shadows.
+- **Background texture:** the dot grid (`.noise-bg`) at about 35% opacity, in heroes only.
+
+---
+
+## 6. Layout and spacing
+
+- Container: `mx-auto max-w-[1400px]`, side padding `px-5 md:px-10`.
+- Sections: `py-24 md:py-32`. Text blocks are kept narrow (`max-w-[60ch]`).
+- Grids: 3–4 equal columns on desktop, one column on phones. Gaps `gap-6`/`gap-8`.
+- Every page ends with the contact section, then the footer.
+- Mobile: a fixed Call / WhatsApp bar sits at the bottom of every page
+  (`MobileContactBar`); the footer has extra bottom padding so it's never hidden.
+
+---
+
+## 7. Components
+
+All shared pieces live in `components/` so every page stays on-brand. Reuse them;
+don't restyle copies.
+
+| Component | Looks like |
+|---|---|
+| `SiteHeader` | Cream bar, logo left, links, blue "Get a free design" pill. Sticky |
+| `MobileMenu` | Below `lg`: white sticker menu button; panel slides down with large Space Grotesk links and a blue CTA |
+| `SiteFooter` | Ink, dark logo, phone and WhatsApp, referral link, all town and industry links |
+| `MobileContactBar` | Phones only: ink "Call" and green "WhatsApp" pills |
+| `PageHero` | Breadcrumbs, headline, lead, ink CTA + underlined secondary link, three ticks |
+| `Pricing` | Deposit + monthly / pay-once toggle, three plan cards, best fit in green |
+| `ContactForm` / `ContactSection` | White sticker form card, blue full-width submit |
+| `FaqList` | White `sticker-sm` accordions with a rotating plus |
+| `WorkGrid` | Ink section, real project screenshots, cream "View site" pills |
+| `ReferralBanner` | Blue band, green gift tile, cream "Refer a business" pill |
+| `StickerBadge` | Tilted green or blue sticker for headline words |
+
+**Buttons**
+
+| Type | Style | Use |
+|---|---|---|
+| Primary | Ink pill, cream text, `.sticker`, arrow icon | Main hero action |
+| Call to action | Blue pill, white text, `.sticker-sm` | "Get a free design", form submit, plan buttons |
+| Secondary | White or cream pill, ink text, `.sticker-sm` | "View site", chips, phone |
+| Text link | Semibold, `underline decoration-2 underline-offset-4` | "See prices", in-copy links |
+
+**Forms:** labels above inputs, inputs on cream with a 2 px ink/15 border, ink
+border and green focus ring on focus. Errors appear under the form in a pale red
+box with an ink border, never as pop-ups.
+
+---
+
+## 8. Icons, imagery and motion
+
+- **Icons:** Phosphor (`@phosphor-icons/react`), **bold** weight. In cards, icons
+  sit in a green tile with a 2 px ink border. No emoji in UI.
+- **Imagery:** real project screenshots only, shown in 16:9 frames. No stock
+  photos. No photo of Ethan; personality comes from the words. Use the browser
+  window mock-up (traffic-light dots, address bar) to show "your website".
+- **Testimonials:** real quotes only, added to `testimonials` in `lib/site.ts`.
+  The section stays hidden while that list is empty.
+- **Motion:** restrained. Fade-up on scroll (`Reveal`, 0.6 s), stickers settle
+  with a small bounce (`StickerBadge`), the hero card tilts with the mouse
+  (`TiltCard`), the mobile menu slides. Everything respects reduced-motion
+  settings.
+
+---
+
+## 9. Voice and tone
+
+- **Plain English.** "No tech jargon, ever" is a promise. Say "keeping your site
+  online", not "hosting infrastructure".
+- **Warm and direct.** Short sentences, contractions, "you" for the customer.
+- **About what's taken care of.** Lead with what the owner no longer has to do.
+- **Honest.** Only claim what's true. No invented reviews, results or local clients.
+- **Same tone for big projects.** Custom software clients get plain English too.
+
+**"We" or "I"?** Services and Pricing speak as **we** (the studio). About, FAQ
+answers, the contact form, town pages and print speak as **Ethan** ("I").
 
 | Write this | Not this |
 |---|---|
-| "Just send us what you'd like updated." | "Submit a change request through our portal." |
-| "We look after hosting, security and updates." | "We manage your server infrastructure." |
-| "No jargon, no stress." | "Leverage our end-to-end digital solutions." |
-
-**Recommended:** Keep technical terms such as hosting, domain or SSL out of headlines. If one is needed, explain it in the same sentence.
-
----
-
-## 5. Audience
-
-- **Primary:** Owners of small, local businesses in Hertfordshire who are not confident with technology.
-- **Examples named on the site:** nail salons, barbers, beauty therapists, cafés, tradespeople, shops, DJs and tutors.
-- **Search focus:** "web design Hertfordshire", "website designer Stevenage", "Watford web design", "Hemel Hempstead websites", "small business websites UK".
+| "Just text me what you'd like changed." | "Submit a change request via our portal." |
+| "Most websites are live within a week." | "Get online today." |
+| "Hosting, security and changes, all handled." | "Managed infrastructure and SLAs." |
+| "A booking page customers can use any time." | "A calendar-integrated scheduling microservice." |
 
 ---
 
-## 6. Services
+## 10. Messaging and offer
 
-| No. | Service | Summary on site |
+| Where | Line |
+|---|---|
+| Hero | Get your business **online** and **looking the part** |
+| Print / banners | Your business, **online** and **looking the part.** |
+| Services | We handle the tech, you run the business. |
+| Contact | Let's get you online. |
+| About | Hi, I'm Ethan. You'll deal with me, start to finish. |
+
+- **Main CTA:** "Get your free design" / "Get a free design". Custom and app work
+  uses "Get a fixed quote".
+- **Turnaround:** "Most websites are live within a week." Never promise "today".
+- **Prices** (source of truth: `plans`, `faqs` and `referral` in `lib/site.ts`):
+  - Starter website: £99 deposit + £39/month (12-month minimum), or £595 once + £15/month
+  - Website + bookings: £149 deposit + £59/month, or £995 once + £25/month
+  - Shops, apps & custom: from £2,500, fixed quote paid in 2–3 stages, support from £49/month
+  - Existing sites: care plans from £15/month
+  - Change prices in `lib/site.ts`, then check the hero ("From £39/month"), the
+    meta description in `app/layout.tsx`, the town pages' FAQs and all print.
+- **Referrals:** clients get a free month, anyone else £50, the referred business
+  £50 off. Due once the referred business pays its deposit. For introductions only,
+  never for reviews. Terms live on `/refer`.
+- **Reply promise:** "I reply to every enquiry the same working day."
+
+---
+
+## 11. Contact details
+
+| Item | Value | Notes |
 |---|---|---|
-| 01 | A Website Built & Managed For You | Mobile-friendly sites that show services and contact details. We handle setup, hosting and changes. |
-| 02 | Online Booking Systems | Round-the-clock booking for appointment-based businesses. |
-| 03 | Custom Solutions | E-commerce stores, advanced booking, or fully bespoke designs. |
+| Website | **www.ejscott.co.uk** | `ejscott.co.uk` redirects here. `SITE_URL` in `lib/site.ts` |
+| Phone (web) | **+44 7942 672887** | `PHONE_DISPLAY` / `PHONE_TEL` in `lib/site.ts` |
+| Phone (print) | **07942 672887** | Same number, UK local format |
+| WhatsApp | `https://wa.me/message/PSC3D7DUXKF6N1` | `WHATSAPP` in `lib/site.ts` |
+| Lead emails | `CONTACT_TO_EMAIL` env var | Falls back to ethan@ejscott.co.uk |
 
-The About section lists four promises: website design, build and hosting; ongoing updates; online booking for appointment-led businesses; and plain-English support.
-
----
-
-## 7. Colour
-
-Colours are set with Tailwind classes. The hex values are Tailwind's default colours.
-
-| Role | Colour | Hex | Classes | Used for |
-|---|---|---|---|---|
-| Base | Black | #000000 | `bg-black`, `text-black` | Primary buttons, footer, "Our Work" background, body text |
-| Base | White | #FFFFFF | `bg-white` | Page background |
-| Accent | Emerald 600 | #059669 | `text-emerald-600`, `bg-emerald-600` | Eyebrow labels, hover states, "today." in the hero, success message |
-| Accent | Emerald 500 | #10B981 | `text-emerald-500`, `border-emerald-500` | Accents on black sections, bullet dots, card hover borders |
-| Tint | Emerald 50 | #ECFDF5 | `bg-emerald-50` | Service card hover background |
-| Neutral | Black at 60%, 50%, 10%, 5% | Greys | `text-black/60`, `border-black/10`, `bg-black/5` | Body copy, captions, hairlines, decorative rings |
-| Neutral on dark | White at 60%, 50%, 40%, 15%, 10% | Greys | `text-white/60`, `border-white/15` | Text and borders on the black section and footer |
-
-Rules as used:
-
-- Black and white carry the brand. Emerald is the only accent colour.
-- Emerald is for highlights and interaction, not large areas. The one large emerald area is a hover state.
-- The page is mostly white. Black appears in the "Our Work" section and the footer. Greys are for text and lines, not backgrounds.
-
-**Dark mode:** `app/globals.css` defines dark values (#0A0A0A background, #EDEDED text), but the landing page hard-codes white and black. The page content stays light whatever the system setting. Decide whether dark mode is wanted, then either use these variables or remove them.
+The same phone number must appear everywhere: site, Google Business Profile,
+social profiles and print. When it changes, update `lib/site.ts`, then Google,
+social bios and every print file.
 
 ---
 
-## 8. Typography
+## 12. Website structure and SEO pages
 
-- **Typeface:** Geist Sans, loaded with `next/font/google` and applied with `font-sans`.
-- **Monospace:** Geist Mono is loaded but not used on the landing page.
-- **Fallback:** Arial, Helvetica, sans-serif, set on `body` in `globals.css`.
-
-| Style | Classes | Size | Used for |
-|---|---|---|---|
-| Hero headline | `text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.05]` | 48 → 72 px | Hero |
-| Section headline | `text-4xl md:text-5xl font-extrabold tracking-tight` | 36 → 48 px | Section titles |
-| Card title | `text-2xl font-bold` | 24 px | Service cards |
-| Project title | `text-xl font-bold` | 20 px | Work cards |
-| Lead text | `text-lg md:text-xl` | 18 → 20 px | Hero intro |
-| Body | `text-lg` or `text-base`, `leading-relaxed` on cards | 16–18 px | Paragraphs |
-| Eyebrow | `text-xs font-bold uppercase tracking-[0.25em]` | 12 px | Labels above headings |
-| Form label | `text-sm font-semibold` | 14 px | Form fields |
-
-Headlines are heavy and tightly tracked. Eyebrows are small, uppercase and widely spaced, and they give each section a consistent entry point.
+- **Towns:** `lib/towns.ts` → `/web-design/[town]`. **Industries:**
+  `lib/industries.ts` → `/websites-for/[industry]`. **Referrals:** `/refer`.
+- Personal copy only where it's true: Hitchin (grew up), Stevenage (lives),
+  Letchworth (DJ Steve Dee). Never invent local clients or history.
+- Every page needs its own words. Don't swap a town name into copied text.
+- Every page sets its own title, description and canonical URL, and includes the
+  shared `ogImage` in its Open Graph metadata (pages that set `openGraph` replace
+  the layout's).
 
 ---
 
-## 9. Shape, layout and spacing
+## 13. Social, link previews and banners
 
-- **Container:** `max-w-6xl` (1152 px) with `px-6` side padding. Text blocks are narrower (`max-w-2xl`, `max-w-3xl`).
-- **Section spacing:** `py-24` (96 px). The hero uses `pt-40 pb-28`.
-- **Navigation:** A white bar fixed to the top, with a 1 px black-at-10% bottom border.
-- **Dividers:** Sections are separated by 1 px black-at-10% lines.
-- **Corner radii:**
-  - Pill (`rounded-full`) for buttons and the nav CTA.
-  - 24 px (`rounded-3xl`) for cards and panels.
-  - 16 px (`rounded-2xl`) for form inputs and the form submit button.
-- **Hairline grid:** The service cards use a 1 px gap over a black-at-10% background to draw dividers.
-- **Circle motif:** The monogram is a circle. The hero has two large outlined circles, one emerald at 20% and one black at 5%. Circles are the only decorative shape, so use them sparingly.
-- **Icons:** None. Small emerald dots mark list items.
-- **Motion:** Colour transitions on hover, and smooth scrolling for anchor links. Keep motion subtle.
+- **Link preview:** `public/og.png` (1200 × 630) shows when any page is shared.
+- **Profile pictures:** the stacked logo on cream, sized to survive circle crops.
+- **Banners:** Facebook, LinkedIn, YouTube and Google Business Profile covers use
+  the same layout as the link preview: logo, headline with stickers, browser mock-up
+  and "From £39/month" / web address chips.
+- Handle: `@ejscottgroup` everywhere it's available.
+- The marketing kit (logo exports, banners, print PDFs, Google and social guides)
+  is kept outside this repo in the `ejscott-marketing` folder.
 
 ---
 
-## 10. Components
+## 14. Print
 
-| Component | Style | Hover or focus |
-|---|---|---|
-| Primary button | Black pill, white semibold text | Emerald-600 background |
-| Secondary button | 2 px black outline pill | Emerald border and text |
-| Nav CTA | Small black pill: "Get Online Today" | Emerald-600 background |
-| Service card | White, in the hairline grid, 40 px padding | Emerald-50 background |
-| Project card | Black section, 1 px white-at-15% border, 24 px radius, 16:9 image | Emerald-500 border |
-| "View site" link | Pill with a thin white-at-10% outline | Emerald border, white text |
-| Checklist panel | 2 px black border, 24 px radius | None |
-| Form field | 2 px black-at-10% border, 16 px radius, label above | Emerald-600 border on focus |
-| Form submit | Full-width black block, 16 px radius, bold text-lg | Emerald-600 background; 50% opacity while sending |
-| Success message | Small emerald text, centred | Shown after a successful send |
+- **Business cards** 85 × 55 mm, **A6 flyers**, **A5 posters** with tear-off tabs.
+- Files carry **3 mm bleed** on every edge, and text stays **4 mm** inside the cut.
+- Export with **static** (single-weight) font files. Variable fonts export as
+  "Type 3", which Vistaprint rejects as "unembedded fonts".
+- QR codes point to `www.ejscott.co.uk/?utm_source=card|flyer|poster&utm_medium=print`.
+- Paper: matte or soft-touch. Gloss makes the cream look yellow. The bright green
+  prints slightly softer than on screen.
 
 ---
 
-## 11. Imagery and portfolio
+## 15. Client proposals
 
-- Two project screenshots are in `public/`: `djstevedee.png` (DJ Steve Dee, Letchworth) and `hempteach.png` (a Hertfordshire tutoring business). Both show in 16:9 frames with `object-cover`.
-- The client names and URLs are shown publicly. Confirm the clients are happy to be featured.
-- **Recommended:** Use the same screenshot size and crop for every project, and add new projects to the same grid.
-- The site uses no brand photography, illustration or icon set yet.
+Personal and low-friction, written by one person who's easy to reach. In order:
 
----
+1. **What you told me:** 2–3 sentences restating their need in their words.
+2. **What I'll build:** short plain-English bullets.
+3. **What's included ongoing:** hosting, updates, support. Always included, even
+   for small jobs.
+4. **Timeline:** a plain date or "within a week" where true.
+5. **Price:** one flat number, or 2–3 plain payment stages for bigger builds.
+6. **Next step:** one clear action, always with the phone number as an option.
 
-## 12. Contact and channels
-
-| Channel | Detail | Where it appears |
-|---|---|---|
-| Website | ejscottgroup.co.uk | Metadata and Open Graph URL |
-| Phone | +44 7942 672887 | Contact section, as a `tel:` link |
-| Lead notifications | ethan@ejscott.co.uk | Contact API. Marked "change this" in the code |
-| Email sender | EJSCOTT Leads <onboarding@resend.dev> | Lead notification emails |
-
-Form fields: Your Name; Business Name & Location; Email or Phone.
-
-Form copy:
-
-- Submit button: "Send Message — Let's Talk"
-- While sending: "Sending..."
-- On success: "Message sent — we'll get back to you soon."
-- On failure: browser alerts, "Something went wrong." or "Network error."
+One page for small sites, up to two for custom software. No cover page, no
+slide-deck styling, no corporate boilerplate.
 
 ---
 
-## 13. Search and social metadata
+## 16. Open items
 
-- **Home title:** "EJSCOTT Group | Websites for Hertfordshire Businesses". Other pages use "%s | EJSCOTT Group".
-- **Description:** See section 3.
-- **Keywords:** web design Hertfordshire; small business websites UK; website designer Stevenage; Watford web design; Hemel Hempstead websites.
-- **Social cards (Open Graph and Twitter):** Title "EJSCOTT Group". Description "Websites for Hertfordshire businesses. Built, hosted and managed for you." Twitter card type is `summary_large_image`.
-- **Favicon:** `app/favicon.ico`. Not reviewed visually. Confirm it is branded and not the Next.js default.
-
----
-
-## 14. Open items
-
-These gaps and inconsistencies were found in the code. Fix or decide on each one.
-
-1. **Two domains.** The site uses ejscottgroup.co.uk, but lead emails go to ejscott.co.uk. Choose one and align them.
-2. **Test sender.** Lead emails come from onboarding@resend.dev, Resend's test address. Verify a company domain in Resend and send from it.
-3. **Lead address.** The destination address is marked "change this" in `app/api/contact/route.ts`.
-4. **Descriptor varies.** The footer says "Professional web design for small businesses across Hertfordshire", while the nav and social cards say "Websites for Hertfordshire". Pick one descriptor for each place.
-5. **Heading case.** Service titles use Title Case, while section headlines use sentence case. Pick one.
-6. **Punctuation.** Straight and curly apostrophes are mixed, and the dash style varies (—, - and ·). Pick one of each.
-7. **Footer.** The copyright line ends with a stray "·".
-8. **Contrast.** Emerald-600 text on white is about 3.8:1, below the 4.5:1 WCAG AA needs for small text. The 12 px eyebrow labels are affected. Emerald-700 (#047857) reaches about 5.5:1. Black-at-50% small text is about 4:1, and the white-at-40% footer text is about 3.7:1 on black.
-9. **Unused dark mode.** The dark-mode variables in `globals.css` are not used (see section 7).
-10. **Body text colour.** `globals.css` sets the text colour to #171717, but the page uses pure black.
-11. **Hover zoom not applied.** Project images have a transition class but no hover scale class, so nothing animates.
-12. **Focus visibility.** Form fields remove the outline and show focus only through a border colour change, which is easy to miss. Add a visible focus ring.
-13. **Browser alerts.** Errors appear as `alert()` pop-ups. Replace them with an on-brand message under the form.
-14. **Turnaround claim.** The contact section says sites are "often in under a week". Confirm this is a promise you can keep, or soften it.
-15. **No logo file.** The logo exists only as styled text. Export it as an SVG.
+1. **Small green labels are too faint.** Green deep on cream is 3.3:1; small
+   eyebrow text needs 4.5:1. Darken `--green-deep` or use ink for small labels.
+2. **Footer copyright is too faint.** Cream at 40% on ink is 3.7:1. Use at least 60%.
+3. **Unused starter files.** `public/file.svg`, `globe.svg`, `next.svg`,
+   `vercel.svg` and `window.svg` are left from the Next.js template.
+4. **No testimonials yet.** Ask DJ Steve Dee and the tutor for quotes.
+5. **Lead email sender.** Verify the domain in Resend and set `CONTACT_FROM_EMAIL`
+   so lead emails don't come from Resend's test address.
