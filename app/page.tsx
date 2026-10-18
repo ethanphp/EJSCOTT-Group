@@ -25,7 +25,7 @@ import {
   Phone,
   WhatsappLogo,
 } from "@phosphor-icons/react/dist/ssr";
-import { PHONE_DISPLAY, PHONE_TEL, SITE_URL, WHATSAPP, businessJsonLd, faqs } from "@/lib/site";
+import { PHONE_DISPLAY, PHONE_TEL, SITE_URL, WHATSAPP, businessJsonLd, faqs, featuredWork } from "@/lib/site";
 import { shortName, towns } from "@/lib/towns";
 import { industries } from "@/lib/industries";
 
@@ -205,7 +205,7 @@ export default function EJScottLanding() {
           </div>
         </section>
 
-        <WorkGrid />
+        <WorkGrid items={featuredWork} />
 
         <Pricing />
 

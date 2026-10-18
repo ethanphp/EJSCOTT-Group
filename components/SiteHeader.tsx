@@ -4,7 +4,7 @@ import MobileMenu from "@/components/MobileMenu";
 
 const links = [
   { href: "/#services", label: "Services" },
-  { href: "/#work", label: "Work" },
+  { href: "/work", label: "Our work" },
   { href: "/#pricing", label: "Pricing" },
   { href: "/web-design", label: "Areas" },
   { href: "/websites-for", label: "Industries" },

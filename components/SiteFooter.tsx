@@ -33,6 +33,11 @@ export default function SiteFooter() {
               </a>
             </p>
             <p className="mt-5 text-sm">
+              <Link href="/work" className="font-semibold text-cream hover:text-green">
+                See our work →
+              </Link>
+            </p>
+            <p className="mt-3 text-sm">
               <Link href="/refer" className="font-semibold text-green hover:underline">
                 Refer a business, get {referral.clientReward} →
               </Link>

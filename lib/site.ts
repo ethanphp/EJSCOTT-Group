@@ -103,6 +103,7 @@ export const work = [
     title: "Modern DJ Website",
     copy: "A modern, conversion-focused site showcasing DJ Steve's music, events, and services. Designed to increase enquiries and drive more regular bookings.",
     href: "https://www.djstevedee.co.uk",
+    caseStudy: "/work/djstevedee",
   },
   {
     image: "/hempteach.png",
@@ -110,6 +111,21 @@ export const work = [
     title: "Tutoring Business",
     copy: "A clean, trust-building website for a local tutor that highlights services, testimonials, and easy booking. Helping turn visitors into students.",
     href: "https://www.hempteach.co.uk",
+    caseStudy: "/work/hempteach",
+  },
+];
+
+// The homepage's featured builds. Town and industry pages keep using `work`, which stays
+// Hertfordshire-only and is indexed by `workIndex` in lib/industries.ts.
+export const featuredWork: typeof work = [
+  work[1],
+  {
+    image: "/work/stacc/card.webp",
+    tag: "Live music nights · Dundee",
+    title: "Live Music & Ticketing Website",
+    copy: "A bold, poster-style site for STACC's live music nights, with ticket sales built right into the homepage. Showing off past nights and selling out the next one.",
+    href: "https://staccsessions.com",
+    caseStudy: "/work/stacc",
   },
 ];
 

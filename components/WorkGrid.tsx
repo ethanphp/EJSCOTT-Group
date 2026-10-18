@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import { testimonials, work } from "@/lib/site";
 
@@ -6,10 +7,12 @@ export default function WorkGrid({
   heading = "Recent builds for real businesses.",
   intro = "Helping business owners look professional and win more customers, both locally and beyond.",
   items = work,
+  showAllLink = true,
 }: {
   heading?: string;
   intro?: string;
   items?: typeof work;
+  showAllLink?: boolean;
 }) {
   return (
     <section id="work" className="border-b-[2.5px] border-ink bg-ink px-5 py-24 text-cream md:px-10 md:py-32">
@@ -41,19 +44,38 @@ export default function WorkGrid({
                   <div className="text-xs font-bold uppercase tracking-[0.2em] text-green">{w.tag}</div>
                   <h3 className="mt-2 font-display text-xl font-semibold">{w.title}</h3>
                   <p className="mt-3 leading-relaxed text-cream/60">{w.copy}</p>
-                  <a
-                    href={w.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="sticker-sm mt-5 inline-block rounded-full bg-cream px-5 py-2.5 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
-                  >
-                    View site
-                  </a>
+                  <div className="mt-5 flex flex-wrap items-center gap-4">
+                    <a
+                      href={w.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="sticker-sm inline-block rounded-full bg-cream px-5 py-2.5 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
+                    >
+                      View site
+                    </a>
+                    {w.caseStudy && (
+                      <Link
+                        href={w.caseStudy}
+                        className="text-sm font-semibold text-cream underline decoration-2 underline-offset-4 hover:text-green"
+                      >
+                        How we built it
+                      </Link>
+                    )}
+                  </div>
                 </div>
               </div>
             </Reveal>
           ))}
         </div>
+
+        {showAllLink && (
+          <Link
+            href="/work"
+            className="sticker-sm mt-12 inline-block rounded-full bg-green px-6 py-3 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
+          >
+            See all our work
+          </Link>
+        )}
 
         {testimonials.length > 0 && (
           <div className="mt-16 grid gap-8 md:grid-cols-2">
