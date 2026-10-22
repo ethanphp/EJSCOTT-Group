@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 import { SITE_URL, ogImage } from "@/lib/site";
 
@@ -64,6 +65,12 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-[#fbfaf6] text-[#0e1210]">
         {children}
+        {/* Cloudflare Web Analytics */}
+        <Script
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "358f3304944b4cab8760ed49bfd7c444"}'
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
