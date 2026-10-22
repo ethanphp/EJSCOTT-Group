@@ -263,8 +263,8 @@ export const caseStudies: CaseStudy[] = [
     },
     built: [
       {
-        title: "The setup, front and centre",
-        copy: "The homepage opens on Steve's all-white rig and LED light show, so you can picture it at your event straight away.",
+        title: "A packed dance floor, front and centre",
+        copy: "The homepage opens on a packed dance floor at one of Steve's events, so you can picture your own night straight away.",
       },
       {
         title: "A page for weddings",
@@ -272,7 +272,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "A gallery of real nights",
-        copy: "Over 50 photos from recent events, in a slideshow people can flick through.",
+        copy: "Photos from recent events, sorted into weddings, parties and DJ setups. Tap any photo to see it full size.",
       },
       {
         title: "Quotes with the right details",
@@ -290,27 +290,27 @@ export const caseStudies: CaseStudy[] = [
     desktop: [
       {
         src: "/work/djstevedee/desktop-hero.webp",
-        alt: "DJ Steve Dee homepage with his DJ booth and LED lights behind the headline",
-        caption: "The homepage leads with Steve's setup and a big \"Hire me now\" button.",
+        alt: "DJ Steve Dee homepage with a packed marquee dance floor behind the headline",
+        caption: "The homepage opens on a packed dance floor and a big \"Get a free quote\" button.",
       },
       {
         src: "/work/djstevedee/desktop-gallery.webp",
-        alt: "DJ Steve Dee gallery titled \"Recent events that went off\" showing a marquee party",
-        caption: "A gallery of over 50 photos from real events.",
+        alt: "DJ Steve Dee gallery with filters for weddings, parties and DJ setups above a grid of event photos",
+        caption: "A gallery of photos from real events, sorted by type.",
       },
       {
         src: "/work/djstevedee/desktop-shows.webp",
-        alt: "DJ Steve Dee professional DJ show page with a photo of his lit-up setup in a marquee",
+        alt: "DJ Steve Dee \"The Pro DJ Show\" page with his lit-up DJ booth behind the headline",
         caption: "A page for the full professional DJ show.",
       },
       {
-        src: "/work/djstevedee/desktop-welcome.webp",
-        alt: "DJ Steve Dee welcome section with a client review and a \"Book DJ Steve Dee today\" banner",
-        caption: "Reviews and a clear call to book, all the way down the page.",
+        src: "/work/djstevedee/desktop-about.webp",
+        alt: "DJ Steve Dee homepage section \"A full dance floor, start to finish\" next to a photo of his all-white setup",
+        caption: "Steve's 25 years of experience, next to his all-white setup.",
       },
       {
         src: "/work/djstevedee/desktop-contact.webp",
-        alt: "DJ Steve Dee quote request form with a WhatsApp button and phone number",
+        alt: "DJ Steve Dee quote request form next to his phone, email and a WhatsApp button",
         caption: "A quote form that asks for everything Steve needs to give a price.",
       },
     ],
