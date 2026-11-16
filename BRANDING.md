@@ -216,8 +216,9 @@ box with an ink border, never as pop-ups.
 - **Testimonials:** real quotes only, added to `testimonials` in `lib/site.ts`.
   The section stays hidden while that list is empty.
 - **Motion:** restrained. Fade-up on scroll (`Reveal`, 0.6 s), stickers settle
-  with a small bounce (`StickerBadge`), the hero card tilts with the mouse
-  (`TiltCard`), the mobile menu slides. Everything respects reduced-motion
+  with a small bounce (`StickerBadge`), the hero showcase (`HeroShowcase`)
+  cross-fades between real client sites every few seconds and pauses on hover,
+  the mobile menu slides. Everything respects reduced-motion
   settings.
 
 ---

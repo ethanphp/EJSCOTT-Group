@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import StickerBadge from "@/components/StickerBadge";
-import TiltCard from "@/components/TiltCard";
+import HeroShowcase from "@/components/HeroShowcase";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import MobileContactBar from "@/components/MobileContactBar";
@@ -143,27 +143,7 @@ export default function EJScottLanding() {
               </div>
 
               <Reveal delay={0.2} y={0} className="relative hidden md:block">
-                <TiltCard className="sticker mx-auto w-full max-w-md rounded-3xl bg-white p-6">
-                  <div className="flex items-center gap-2 border-b-2 border-ink/10 pb-4">
-                    <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
-                    <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
-                    <span className="h-3 w-3 rounded-full bg-[#28c840]" />
-                    <span className="ml-3 font-mono text-xs text-ink/40">yourbusiness.co.uk</span>
-                  </div>
-                  <div className="mt-5 space-y-3 font-mono text-sm">
-                    <p className="text-ink/40">$ ejscott build</p>
-                    <p><span className="text-green-deep">✓</span> site designed</p>
-                    <p><span className="text-green-deep">✓</span> bookings connected</p>
-                    <p><span className="text-green-deep">✓</span> hosting live</p>
-                    <p className="text-ink/40">$ status</p>
-                    <p className="rounded-lg bg-green/30 px-3 py-2 text-ink">
-                      taking new customers
-                    </p>
-                  </div>
-                </TiltCard>
-                <div className="sticker-sm absolute -bottom-6 -left-6 rotate-[-6deg] rounded-2xl bg-blue px-5 py-3 text-sm font-semibold text-white">
-                  Most sites live in a week
-                </div>
+                <HeroShowcase />
               </Reveal>
             </div>
           </div>
