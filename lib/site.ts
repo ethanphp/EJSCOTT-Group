@@ -14,6 +14,16 @@ export const PHONE_E164 = "+447942672887";
 export const WHATSAPP = "https://wa.me/message/PSC3D7DUXKF6N1";
 export const REPLY_PROMISE = "I reply to every enquiry the same working day.";
 
+// Legal details, shown in the footer and privacy policy (required for a limited company).
+// Must match Companies House exactly. If the registered office moves, change it here.
+export const company = {
+  legalName: "EJSCOTT Group Limited",
+  number: "17589616",
+  registeredIn: "England and Wales",
+  registeredOffice: "58 Austen Paths, Stevenage, England, SG2 0NR",
+  email: "ethan@ejscott.co.uk",
+};
+
 export type Billing = "monthly" | "once";
 
 // All prices live here. Edit these and the pricing section and FAQs follow.
@@ -182,6 +192,7 @@ export const businessJsonLd = {
   "@type": "ProfessionalService",
   "@id": `${SITE_URL}/#business`,
   name: "EJSCOTT Group",
+  legalName: company.legalName,
   url: SITE_URL,
   logo: `${SITE_URL}/logo.png`,
   image: `${SITE_URL}/logo.png`,

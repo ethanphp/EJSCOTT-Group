@@ -204,6 +204,10 @@ export default function ReferralForm() {
           {errorMessage} You can also call or WhatsApp me on {PHONE_DISPLAY}.
         </p>
       )}
+      <p className="mt-4 text-center text-xs text-ink/60">
+        Only share their details if they&apos;re happy for me to get in touch.{" "}
+        <a href="/privacy" className="underline underline-offset-2 hover:text-ink">Privacy policy</a>
+      </p>
     </form>
   );
 }

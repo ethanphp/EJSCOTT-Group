@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { industries } from "@/lib/industries";
-import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP, referral } from "@/lib/site";
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP, company, referral } from "@/lib/site";
 import { shortName, towns } from "@/lib/towns";
 
 export default function SiteFooter() {
@@ -75,8 +75,18 @@ export default function SiteFooter() {
           </nav>
         </div>
 
-        <div className="mt-12 border-t border-cream/15 pt-8 text-center text-xs text-cream/40">
-          © {new Date().getFullYear()} EJSCOTT Group
+        <div className="mt-12 space-y-2 border-t border-cream/15 pt-8 text-center text-xs leading-relaxed text-cream/60">
+          <p>
+            © {new Date().getFullYear()} {company.legalName}
+            <span className="mx-2 text-cream/30">|</span>
+            <Link href="/privacy" className="underline underline-offset-2 hover:text-cream">
+              Privacy
+            </Link>
+          </p>
+          <p>
+            Registered in {company.registeredIn}, company number {company.number}. Registered
+            office: {company.registeredOffice}.
+          </p>
         </div>
       </div>
     </footer>

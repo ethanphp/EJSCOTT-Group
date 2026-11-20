@@ -288,6 +288,10 @@ export default function ContactForm({
           {REPLY_PROMISE} No obligation, no payment until you&apos;re happy.
         </p>
       )}
+      <p className="mt-3 text-center text-xs text-ink/60">
+        I only use your details to reply to you.{" "}
+        <a href="/privacy" className="underline underline-offset-2 hover:text-ink">Privacy policy</a>
+      </p>
     </form>
   );
 }

@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     })),
     { url: `${SITE_URL}/refer`, lastModified, changeFrequency: "yearly", priority: 0.5 },
+    { url: `${SITE_URL}/privacy`, lastModified, changeFrequency: "yearly", priority: 0.2 },
     ...towns.map((t) => ({
       url: `${SITE_URL}/web-design/${t.slug}`,
       lastModified,
